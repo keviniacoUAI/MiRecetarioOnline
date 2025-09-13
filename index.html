@@ -1,23 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Inicio</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recetas Caseras Simples</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color:#fffaf0; margin:0; }
+    .barra { background:#ffe8a1; padding:10px; position:sticky; top:0; }
+    .barra a { margin:0 8px; }
+    table { border:1px solid #000; border-spacing:0; width:100%; }
+    th, td { border:1px solid #000; padding:6px; text-align:left; }
+    caption { font-weight:bold; padding:6px; }
+    .caja { padding:12px; }
+    .volver { text-align:right; }
+    a:link { color:#0a66c2; }
+    a:visited { color:#5f3dc4; }
+    a:hover { text-decoration:underline; }
+    .galeria img { margin:6px; max-width:100%; height:auto; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Mi recetario Online - Kevin Iacovantuono</h1>
+
+  <div id="top" class="barra">
+    <h1 style="margin:0;">Recetas Caseras Simples</h1>
+    <p style="margin:6px 0;">
+      <a href="#presentacion">Presentación</a> |
+      <a href="#saladas">Recetas saladas</a> |
+      <a href="#postres">Postres</a> |
+      <a href="#bebidas">Bebidas (tragos)</a> |
+      <a href="#contacto">Contacto</a>
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- Presentación -->
+  <div id="Home" class="caja">
+    <h2>Bienvenido cocinero!</h2>
+    <p>
+      Bienvenidos a <b>Recetas Caseras Simples</b>. Acá vas a encontrar ideas rápidas con
+      <i>ingredientes accesibles</i> para cocinar en casa sin complicarte.
+    </p>
+    <div class="galeria">
+      <img src="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg" alt="Plato de comida casera" width="800" height="400">">
     </div>
-</body>
-</html>
-</body>
-</html>
+    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
+  </div>
+
+  <hr>
+
+  <!-- Saladas -->
+  <div id="saladas" class="caja">
+    <h2>Recetas saladas</h2>
+    <table>
+      <caption>Fáciles para todos los días</caption>
+      <tr>
+        <th>Receta</th>
+        <th>Ingredientes</th>
+        <th>Pasos</th>
+      </tr>
+      <tr>
+        <td>Tostadas con tomate</td>
+        <td>Pan, 1 tomate maduro, aceite, sal</td>
+        <td>Tostar pan · Frotar tomate · Un chorrito de aceite · Sal a gusto.</td>
+      </tr>
+      <tr>
+        <td>Arroz súper rápido</td>
+        <td>Arroz, agua, sal</td>
+        <td>Hervir agua · Agregar arroz y sal · Cocinar hasta tierno y reposar 5 min.</td>
+      </tr>
+      <tr>
+        <td>Omelette básico</td>
+        <td>2 huevos, queso, sal, pimienta</td>
+        <td>Batir huevos · Salpimentar · Cocinar en sartén · Rellenar con queso y doblar.</td>
+      </tr>
+    </table>
+
+    <p>
+      <img src="https://images.foodiesfeed.com/salada_plato.jpg" alt="Plato salado simple" width="760" height="300">
+    </p>
+
+    <h3>Video recomendado: Receta fácil de omelette</h3>
+<p>
+  <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">
+    <img src="https://img.youtube.com/vi/9feEKoL0YWQ/hqdefault.jpg"
+         alt="Video: Omelette fácil" width="480" height="270">
+  </a><br>
+  <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">Ver en YouTube</a>
+</p>
+
+    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
+  </div>
+
+  <hr>
+
+  <!-- Postres -->
+  <div id="postres" class="caja">
+    <h2>Postres</h2>
+    <table>
+      <caption>Dulces y rápidos</caption>
+      <tr>
+        <th>Receta</th>
+        <th>Ingredientes</th>
+        <th>Pasos</th>
+      </tr>
+      <tr>
+        <td>Banana con miel</td>
+        <td>1 banana, 1 cda de miel</td>
+        <td>Cortar banana en rodajas · Agregar miel por encima.</td>
+      </tr>
+      <tr>
+        <td>Yogur con frutas</td>
+        <td>Yogur natural, fruta a elección</td>
+        <td>Mezclar yogur con trocitos de fruta · Servir frío.</td>
+      </tr>
+      <tr>
+        <td>Manzana tibia con canela</td>
+        <td>1 manzana, azúcar, canela</td>
+        <td>Filetear manzana · Espolvorear azúcar y canela · Calentar unos minutos.</td>
+      </tr>
+    </table>
+
+    <p>
+      <img src="https://images.foodiesfeed.com/postre.jpg" alt="Dulce de postre casero" width="760" height="300">
+    </p>
+
+    <h3>Video recomendado: Banana caramelizada con miel</h3>
+<p>
+  <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">
+    <img src="https://img.youtube.com/vi/bujhyAsKolc/hqdefault.jpg"
+         alt="Video: Banana con miel" width="480" height="270">
+  </a><br>
+  <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">Ver en YouTube</a>
+</p>
 
 
+  <hr>
+
+  <!-- Bebidas -->
+  <div id="bebidas" class="caja">
+    <h2>Bebidas (tragos)</h2>
+    <table>
+      <caption>Refrescantes</caption>
+      <tr>
+        <th>Bebida</th>
+        <th>Ingredientes</th>
+        <th>Pasos</th>
+      </tr>
+      <tr>
+        <td>Limonada clásica</td>
+        <td>Limón, agua fría, azúcar</td>
+        <td>Exprimir limón · Mezclar con agua y azúcar · Hielo opcional.</td>
+      </tr>
+      <tr>
+        <td>Naranja fresca</td>
+        <td>Naranjas, agua</td>
+        <td>Exprimir naranjas · Rebajar con agua a gusto.</td>
+      </tr>
+      <tr>
+        <td>Smoothie de frutas</td>
+        <td>Frutas varias, yogur, hielo</td>
+        <td>Licuar todo · Servir frío.</td>
+      </tr>
+    </table>
+
+    <p>
+      <img src="https://images.foodiesfeed.com/bebida_refrescante.jpg" alt="Bebidas refrescantes" width="760" height="300">
+    </p>
+
+<h3>Video recomendado: Limonada casera</h3>
+<p>
+  <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">
+    <img src="https://img.youtube.com/vi/a2pJiCcXSLI/hqdefault.jpg"
+         alt="Video: Limonada casera" width="480" height="270">
+  </a><br>
+  <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">Ver en YouTube</a>
+</p>
+
+    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
+  </div>
+
+  <hr>
+
+  <!-- Contacto -->
+  <div id="contacto" class="caja">
+    <h2>Contacto</h2>
+    <p>¿Tenés sugerencias o querés mandar tu receta?</p>
+    <p><a href="mailto:recetas@ejemplo.com?subject=Sugerencia%20de%20receta">Enviar email</a></p>
+    <address>
+      Autor: Kevin — Buenos Aires, Argentina<br>
+      Instagram: <a href="https://example.com" target="_blank">/recetas_caseras</a>
+    </address>
+    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
+  </div>
+
+  <hr>
+
+  <p style="text-align:center;"><small>&copy; 2025 Recetas Caseras Simples</small></p>
+
+</body>
+</html>
