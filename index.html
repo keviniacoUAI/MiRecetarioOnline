@@ -22,7 +22,7 @@
     a:hover { text-decoration:underline; }
     .galeria img { margin:6px; max-width:100%; height:auto; }
 
-    /* V2: resalta receta encontrada por el filtro */
+    /* V2: resalto receta encontrada por el filtro */
     .highlight { outline: 3px dashed #0a66c2; background: #f0f7ff; }
 
     /* V2: drop + form compartir receta */
@@ -38,7 +38,7 @@
     .mini-form textarea { padding:4px; }
     .mini-form textarea { width: 100%; height: 70px; }
 
-    /* V2: mapa embebido */
+    /* V2: mapa embebido con iframe */
     #mapa { border:1px solid #000; padding:10px; }
     #mapa iframe { width:100%; height:300px; border:0; display:block; }
   </style>
@@ -239,13 +239,13 @@
   <div id="compartir" class="caja">
     <h2>Compartí tu receta</h2>
 
-    <!-- V2: solo drop handler para la FOTO -->
+    <!-- V2: drop handler para la FOTO -->
     <div id="v2-drop" class="dropzone" title="Soltá aquí una foto (JPG/PNG) de tu receta">
       Soltá acá la <b>foto</b> de tu receta (JPG/PNG). <br>Luego completá el formulario y publicala 👇
       <div id="v2-preview"></div>
     </div>
 
-    <!-- V2: mini form de la comunidad (datos de la receta) -->
+    <!-- V2: form de la comunidad (datos de la receta) -->
     <form class="mini-form" id="v2-compartir">
       <label for="cr-nombre">Nombre receta:</label>
       <input type="text" id="cr-nombre" required><br>
@@ -268,10 +268,9 @@
 
   <hr>
 
-  <!-- V2: Mapa embebido (queda ANTES de Contacto) -->
+  <!-- V2: Mapa embebido -->
   <div id="mapa" class="caja">
-    <h2><!-- V2 -->Buscá lugares de comida cercanos</h2>
-    <!-- V2: botón acá (debajo del título y arriba del mapa) -->
+    <h2>Buscá lugares de comida cercanos</h2>
     <p><button id="v2-btn-mapa">Ver lugares cerca (embebido acá)</button> <small>(usa tu ubicación del navegador)</small></p>
     <iframe id="v2-iframe-mapa" title="Mapa de tu zona (Google Maps embebido)" loading="lazy"></iframe>
     <p class="volver"><a href="#top">↑ Volver arriba</a></p>
@@ -279,11 +278,11 @@
 
   <hr>
 
-  <!-- Contacto (AHORA ÚLTIMA SECCIÓN) -->
+  <!-- Contacto  -->
   <div id="contacto" class="caja">
     <h2>Contacto</h2>
 
-    <!-- V2: contacto simplificado -->
+    <!-- V2: contacto -->
     <p>¿Tenés sugerencias o querés mandar tu receta? Completá tus datos y envianos un mensaje:</p>
     <form class="mini-form" id="v2-contacto" action="mailto:recetas@ejemplo.com" method="post" enctype="text/plain">
       <label for="c-nombre">Nombre:</label>
@@ -318,7 +317,7 @@
       });
     });
 
-    // V2: saludo con localStorage (si completás contacto, te saludo la próxima)
+    // V2: saludo con localStorage
     const saludo = document.getElementById('v2-saludo');
     const nombreGuardado = localStorage.getItem('nombreUsuario');
     if(nombreGuardado){
