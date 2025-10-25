@@ -9,7 +9,8 @@ document.getElementById('v2-btn-mapa').addEventListener('click', () => {
         (pos) => {
             const lat = pos.coords.latitude.toFixed(6);
             const lng = pos.coords.longitude.toFixed(6);
-            const url = 'https://www.google.com/maps?q=' + lat + ',' + lng + '&z=14&output=embed';
+            const query = encodeURIComponent('restaurantes cerca de ' + lat + ',' + lng);
+            const url = 'https://www.google.com/maps?q=' + query + '&z=14&output=embed';
             iframe.src = url;
         },
         (err) => {
