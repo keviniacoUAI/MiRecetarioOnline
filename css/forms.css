@@ -1,0 +1,33 @@
+/* Estilos para formularios */
+.mini-form label { 
+    display:inline-block; 
+    min-width:110px; 
+    margin:4px 0; 
+}
+
+.mini-form input[type="text"],
+.mini-form input[type="number"],
+.mini-form input[type="email"],
+.mini-form input[type="password"],
+.mini-form textarea { 
+    padding:4px; 
+}
+
+.mini-form textarea { 
+    width: 100%; 
+    height: 70px; 
+}
+
+/* Dropzone para imágenes */
+.dropzone {
+    border:2px dashed #888; 
+    padding:12px; 
+    background:#fff; 
+    min-height:60px; 
+    text-align:center;
+}
+
+.dropzone.activa { 
+    border-color:#0a66c2; 
+    background:#f0f7ff; 
+}

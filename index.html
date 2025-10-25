@@ -4,25 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Recetas Caseras Simples</title>
-
-  <!-- V2 Faviconn -->
   <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-
   <div id="top" class="barra">
     <h1 style="margin:0;">Recetas Caseras Simples</h1>
     <p style="margin:6px 0;">
-      <!-- V2: links de navegación -->
       <a href="#presentacion" class="nav-link">Presentación</a> |
-      <a href="#saladas" class="nav-link">Recetas saladas</a> |
-      <a href="#postres" class="nav-link">Postres</a> |
-      <a href="#bebidas" class="nav-link">Bebidas (tragos)</a> |
-      <!-- V2: nueva sección independiente -->
-      <a href="#compartir" class="nav-link">Compartí tu receta</a> |
-      <a href="#mapa" class="nav-link">Mapa</a> |
-      <a href="#contacto" class="nav-link">Contacto</a>
+      <a href="pages/recetas/saladas.html" class="nav-link">Recetas saladas</a> |
+      <a href="pages/recetas/postres.html" class="nav-link">Postres</a> |
+      <a href="pages/recetas/bebidas.html" class="nav-link">Bebidas (tragos)</a> |
+      <a href="pages/share.html" class="nav-link">Compartí tu receta</a> |
+      <a href="pages/map.html" class="nav-link">Mapa</a> |
+      <a href="pages/contact.html" class="nav-link">Contacto</a>
     </p>
   </div>
 
@@ -36,7 +33,7 @@
       <i>ingredientes accesibles</i> para cocinar en casa sin complicarte.
     </p>
 
-    <!-- V2: Filtro por minutos + vegetariana + palabra clave -->
+    <!-- Filtro por minutos + vegetariana + palabra clave -->
     <form class="mini-form" id="v2-filtro" autocomplete="on">
       <h3>Filtrar recetas</h3>
       <label for="mins">Máx. minutos:</label>
@@ -53,402 +50,21 @@
       <small> (te llevo a la primera receta que matchee) </small>
     </form>
 
-    <!-- V2: saludo con localStorage -->
+    <!-- Saludo con localStorage -->
     <p id="v2-saludo"></p>
 
     <div class="galeria">
-      <img src="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg" alt="Plato de comida casera" width="800" height="400">
+      <img src="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg" 
+           alt="Plato de comida casera" width="800" height="400">
     </div>
 
     <p class="volver"><a href="#top">↑ Volver arriba</a></p>
   </div>
 
   <hr>
-
-  <!-- Saladas -->
-  <div id="saladas" class="caja">
-    <h2>Recetas saladas</h2>
-    <table>
-      <caption>Fáciles para todos los días</caption>
-      <tr>
-        <th>Receta</th>
-        <th>Ingredientes</th>
-        <th>Pasos</th>
-      </tr>
-      <!-- V2: data-mins y data-veg para el filtro -->
-      <tr data-mins="5" data-veg="true">
-        <td>Tostadas con tomate</td>
-        <td>Pan, 1 tomate maduro, aceite, sal</td>
-        <td>Tostar pan · Frotar tomate · Un chorrito de aceite · Sal a gusto.</td>
-      </tr>
-      <tr data-mins="18" data-veg="true">
-        <td>Arroz súper rápido</td>
-        <td>Arroz, agua, sal</td>
-        <td>Hervir agua · Agregar arroz y sal · Cocinar hasta que esté tierno y reposar 5 min.</td>
-      </tr>
-      <tr data-mins="10" data-veg="true">
-        <td>Omelette básico</td>
-        <td>2 huevos, queso, sal, pimienta</td>
-        <td>Batir huevos · Salpimentar · Cocinar en sartén · Rellenar con queso y doblar.</td>
-      </tr>
-    </table>
-
-    <p>
-      <img src="https://images.foodiesfeed.com/salada_plato.jpg" alt="Plato salado simple" width="760" height="300">
-    </p>
-
-    <h3>Video recomendado: Receta fácil de omelette</h3>
-    <p>
-      <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/9feEKoL0YWQ/hqdefault.jpg"
-             alt="Video: Omelette fácil" width="480" height="270">
-      </a><br>
-      <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">Ver en YouTube</a>
-    </p>
-
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
-
-  <hr>
-
-  <!-- Postres -->
-  <div id="postres" class="caja">
-    <h2>Postres</h2>
-    <table>
-      <caption>Dulces y rápidos</caption>
-      <tr>
-        <th>Receta</th>
-        <th>Ingredientes</th>
-        <th>Pasos</th>
-      </tr>
-      <tr data-mins="3" data-veg="true">
-        <td>Banana con miel</td>
-        <td>1 banana, 1 cda de miel</td>
-        <td>Cortar banana en rodajas · Agregar miel por encima.</td>
-      </tr>
-      <tr data-mins="5" data-veg="true">
-        <td>Yogur con frutas</td>
-        <td>Yogur natural, fruta a elección</td>
-        <td>Mezclar yogur con trocitos de fruta · Servir frío.</td>
-      </tr>
-      <tr data-mins="2" data-veg="true">
-        <td>Manzana tibia con canela</td>
-        <td>1 manzana, azúcar, canela</td>
-        <td>Filetear manzana · Espolvorear azúcar y canela · Calentar unos minutos.</td>
-      </tr>
-    </table>
-
-    <p>
-      <img src="https://images.foodiesfeed.com/postre.jpg" alt="Dulce de postre casero" width="760" height="300">
-    </p>
-
-    <h3>Video recomendado: Banana caramelizada con miel</h3>
-    <p>
-      <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/bujhyAsKolc/hqdefault.jpg"
-             alt="Video: Banana con miel" width="480" height="270">
-      </a><br>
-      <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">Ver en YouTube</a>
-    </p>
-
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
-
-  <hr>
-
-  <!-- Bebidas -->
-  <div id="bebidas" class="caja">
-    <h2>Bebidas (tragos)</h2>
-    <table>
-      <caption>Refrescantes</caption>
-      <tr>
-        <th>Bebida</th>
-        <th>Ingredientes</th>
-        <th>Pasos</th>
-      </tr>
-      <tr data-mins="4" data-veg="true">
-        <td>Limonada clásica</td>
-        <td>Limón, agua fría, azúcar</td>
-        <td>Exprimir limón · Mezclar con agua y azúcar · Hielo opcional.</td>
-      </tr>
-      <tr data-mins="3" data-veg="true">
-        <td>Naranja fresca</td>
-        <td>Naranjas, agua</td>
-        <td>Exprimir naranjas · Rebajar con agua a gusto.</td>
-      </tr>
-      <tr data-mins="7" data-veg="true">
-        <td>Smoothie de frutas</td>
-        <td>Frutas varias, yogur, hielo</td>
-        <td>Licuar todo · Servir frío.</td>
-      </tr>
-    </table>
-
-    <p>
-      <img src="https://images.foodiesfeed.com/bebida_refrescante.jpg" alt="Bebidas refrescantes" width="760" height="300">
-    </p>
-
-    <h3>Video recomendado: Limonada casera</h3>
-    <p>
-      <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/a2pJiCcXSLI/hqdefault.jpg"
-             alt="Video: Limonada casera" width="480" height="270">
-      </a><br>
-      <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">Ver en YouTube</a>
-    </p>
-
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
-
-  <hr>
-
-  <!-- V2: NUEVA SECCIÓN INDEPENDIENTE: Compartí tu receta -->
-  <div id="compartir" class="caja">
-    <h2>Compartí tu receta</h2>
-
-    <!-- V2: drop handler para la FOTO -->
-    <div id="v2-drop" class="dropzone" title="Soltá aquí una foto (JPG/PNG) de tu receta">
-      Soltá acá la <b>foto</b> de tu receta (JPG/PNG). <br>Luego completá el formulario y publicala 👇
-      <div id="v2-preview"></div>
-    </div>
-
-    <!-- V2: form de la comunidad (datos de la receta) -->
-    <form class="mini-form" id="v2-compartir">
-      <label for="cr-nombre">Nombre receta:</label>
-      <input type="text" id="cr-nombre" required><br>
-      <label for="cr-ingred">Ingredientes:</label>
-      <input type="text" id="cr-ingred" placeholder="separados por coma" required><br>
-      <label for="cr-pasos">Pasos:</label>
-      <textarea id="cr-pasos" required></textarea>
-      <label for="cr-mins">Minutos:</label>
-      <input type="number" id="cr-mins" min="1" max="240" value="10" required><br>
-      <label><input type="checkbox" id="cr-veg"> Vegetariana</label><br>
-      <input type="submit" value="Publicar receta">
-    </form>
-
-    <!-- V2: listado de recetas de la comunidad -->
-    <h4>Recetas de la comunidad</h4>
-    <ul id="v2-recetas-nuevas"></ul>
-
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
-
-  <hr>
-
-  <!-- V2: Mapa embebido -->
-  <div id="mapa" class="caja">
-    <h2>Buscá lugares de comida cercanos</h2>
-    <p><button id="v2-btn-mapa">Ver lugares cerca (embebido acá)</button> <small>(usa tu ubicación del navegador)</small></p>
-    <iframe id="v2-iframe-mapa" title="Mapa de tu zona (Google Maps embebido)" loading="lazy"></iframe>
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
-
-  <hr>
-
-  <!-- Contacto  -->
-  <div id="contacto" class="caja">
-    <h2>Contacto</h2>
-
-    <!-- V2: contacto -->
-    <p>¿Tenés sugerencias o querés mandar tu receta? Completá tus datos y envianos un mensaje:</p>
-    <form class="mini-form" id="v2-contacto" action="mailto:recetas@ejemplo.com" method="post" enctype="text/plain">
-      <label for="c-nombre">Nombre:</label>
-      <input type="text" id="c-nombre" name="nombre" required>
-      <br>
-      <label for="c-email">Email:</label>
-      <input type="email" id="c-email" name="email" placeholder="tucorreo@ejemplo.com" required>
-      <br>
-      <label for="c-desc">Descripción:</label>
-      <textarea id="c-desc" name="descripcion" placeholder="Contanos tu sugerencia..." required></textarea>
-      <br>
-      <input type="submit" value="Enviar">
-    </form>
-
-    <address>
-      Autor: Kevin — Buenos Aires, Argentina<br>
-      Instagram: <a href="https://example.com" target="_blank">/recetas_caseras</a>
-    </address>
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
-
-  <hr>
-
   <p style="text-align:center;"><small>&copy; 2025 Recetas Caseras Simples</small></p>
 
-  <!-- V2: JS -->
-  <script>
-    // V2: recordar última sección clickeada en sessionStorage
-    document.querySelectorAll('.nav-link').forEach(a=>{
-      a.addEventListener('click', ()=> {
-        sessionStorage.setItem('ultimaSeccion', a.getAttribute('href'));
-      });
-    });
-
-    // V2: saludo con localStorage
-    const saludo = document.getElementById('v2-saludo');
-    const nombreGuardado = localStorage.getItem('nombreUsuario');
-    if(nombreGuardado){
-      saludo.textContent = 'Hola ' + nombreGuardado + ' 👋 ¡bienvenido de nuevo!';
-    }
-    document.getElementById('v2-contacto').addEventListener('submit', ()=>{
-      const n = document.getElementById('c-nombre').value.trim();
-      if(n) localStorage.setItem('nombreUsuario', n);
-    });
-
-    // V2: FILTRO (minutos + vegetariana + palabra clave)
-    const formFiltro = document.getElementById('v2-filtro');
-    formFiltro.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      document.querySelectorAll('tr.highlight').forEach(tr => tr.classList.remove('highlight'));
-
-      const maxMins = parseInt(document.getElementById('mins').value || '999', 10);
-      const soloVeg = document.getElementById('veg').checked;
-      const kw = (document.getElementById('kw').value || '').trim().toLowerCase();
-
-      const filas = Array.from(document.querySelectorAll('table tr[data-mins]'));
-      const match = filas.find(tr=>{
-        const mins = parseInt(tr.getAttribute('data-mins'), 10);
-        const veg = tr.getAttribute('data-veg') === 'true';
-        if (isNaN(mins) || mins > maxMins) return false;
-        if (soloVeg && !veg) return false;
-        if (kw && !tr.textContent.toLowerCase().includes(kw)) return false;
-        return true;
-      });
-
-      if(match){
-        match.classList.add('highlight');
-        let seccion = match.closest('.caja');
-        if(seccion && seccion.id){
-          location.hash = '#' + seccion.id;
-        }
-        match.scrollIntoView({behavior:'smooth', block:'center'});
-      } else {
-        alert('No encontré recetas con esos filtros 😕');
-      }
-    });
-
-    // V2: Botón del mapa -> geolocaliza y embebe Google Maps en el <iframe>
-    document.getElementById('v2-btn-mapa').addEventListener('click', ()=>{
-      const iframe = document.getElementById('v2-iframe-mapa');
-      if(!navigator.geolocation){
-        alert('Tu navegador no soporta geolocalización.');
-        return;
-      }
-      navigator.geolocation.getCurrentPosition(
-        (pos)=>{
-          const lat = pos.coords.latitude.toFixed(6);
-          const lng = pos.coords.longitude.toFixed(6);
-          const url = 'https://www.google.com/maps?q=' + lat + ',' + lng + '&z=14&output=embed';
-          iframe.src = url;
-        },
-        (err)=>{
-          alert('No pude obtener tu ubicación (permiso denegado o error).');
-        }
-      );
-    });
-
-    // ==========================
-    // V2: Compartí tu receta
-    // ==========================
-    const drop = document.getElementById('v2-drop');
-    const preview = document.getElementById('v2-preview');
-    const lista = document.getElementById('v2-recetas-nuevas');
-    let v2FotoDataURL = null;
-
-    drop.addEventListener('dragover', (e)=>{
-      e.preventDefault();
-      drop.classList.add('activa');
-    });
-    drop.addEventListener('dragleave', ()=>{
-      drop.classList.remove('activa');
-    });
-    drop.addEventListener('drop', (e)=>{
-      e.preventDefault();
-      drop.classList.remove('activa');
-
-      const archivo = e.dataTransfer.files && e.dataTransfer.files[0];
-      if(!archivo){ alert('Soltá una imagen JPG/PNG'); return; }
-      const ok = /(\.jpg|\.jpeg|\.png)$/i.test(archivo.name);
-      if(!ok){ alert('Solo imágenes JPG/PNG'); return; }
-
-      const lector = new FileReader();
-      lector.onload = function(){
-        v2FotoDataURL = lector.result;
-        // preview
-        preview.innerHTML = '';
-        const img = document.createElement('img');
-        img.src = v2FotoDataURL;
-        img.alt = 'Foto cargada';
-        img.style.maxWidth = '240px';
-        img.style.marginTop = '8px';
-        preview.appendChild(img);
-      };
-      lector.readAsDataURL(archivo);
-    });
-
-    // V2: persistencia en localStorage de recetas de la comunidad
-    const STORAGE_KEY = 'recetasComunidad';
-
-    function cargarRecetasGuardadas(){
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if(!raw) return;
-      try{
-        const arr = JSON.parse(raw);
-        arr.forEach(r => renderReceta(r));
-      }catch(_){}
-    }
-
-    function guardarReceta(r){
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const arr = raw ? JSON.parse(raw) : [];
-      arr.push(r);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-    }
-
-    function renderReceta(r){
-      const li = document.createElement('li');
-      li.innerHTML = '<b>' + escapar(r.nombre) + '</b> — ' + escapar(r.ingred) +
-        ' — ' + escapar(r.pasos) + ' — ' + escapar(r.mins) + ' min — Veg: ' + escapar(r.veg);
-      lista.appendChild(li);
-      if(r.foto){
-        const img = document.createElement('img');
-        img.src = r.foto;
-        img.alt = 'Foto de ' + r.nombre;
-        img.style.maxWidth = '240px';
-        img.style.display = 'block';
-        img.style.margin = '6px 0';
-        li.appendChild(img);
-      }
-    }
-
-    document.getElementById('v2-compartir').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const r = {
-        nombre: document.getElementById('cr-nombre').value.trim(),
-        ingred: document.getElementById('cr-ingred').value.trim(),
-        pasos: document.getElementById('cr-pasos').value.trim(),
-        mins: document.getElementById('cr-mins').value.trim(),
-        veg: document.getElementById('cr-veg').checked ? 'true' : 'false',
-        foto: v2FotoDataURL
-      };
-      if(!r.nombre || !r.ingred || !r.pasos || !r.mins){
-        alert('Completá todos los campos.');
-        return;
-      }
-      renderReceta(r);
-      guardarReceta(r);
-
-      // limpiar form y preview
-      e.target.reset();
-      v2FotoDataURL = null;
-      preview.innerHTML = '';
-
-      alert('¡Gracias por compartir tu receta!');
-    });
-
-    function escapar(s){ return (s||'').toString().replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-
-    // V2: restaurar recetas guardadas al cargar
-    window.addEventListener('load', cargarRecetasGuardadas);
-  </script>
+  <script src="js/storage.js"></script>
+  <script src="js/filter.js"></script>
 </body>
 </html>
