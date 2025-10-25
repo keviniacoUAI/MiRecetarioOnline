@@ -1,19 +1,27 @@
 // Manejo de localStorage y sessionStorage
 // Última sección visitada
-document.querySelectorAll('.nav-link').forEach(a => {
-    a.addEventListener('click', () => {
-        sessionStorage.setItem('ultimaSeccion', a.getAttribute('href'));
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        sessionStorage.setItem('ultimaSeccion', link.getAttribute('href'));
     });
 });
 
-// Saludo personalizado
-const saludo = document.getElementById('v2-saludo');
+// Saludo personalizado en la portada
 const nombreGuardado = localStorage.getItem('nombreUsuario');
-if (nombreGuardado) {
-    saludo.textContent = 'Hola ' + nombreGuardado + ' 👋 ¡bienvenido de nuevo!';
+const presentacionTitulo = document.getElementById('presentacion-titulo');
+
+if (presentacionTitulo && nombreGuardado) {
+    presentacionTitulo.textContent = 'Hola ' + nombreGuardado + ' 👋 ¡bienvenido de nuevo!';
+    presentacionTitulo.classList.add('presentacion__titulo--personalizado');
 }
 
-document.getElementById('v2-contacto').addEventListener('submit', () => {
-    const n = document.getElementById('c-nombre').value.trim();
-    if (n) localStorage.setItem('nombreUsuario', n);
-});
+// Guardar el nombre desde el formulario de contacto
+const contactoForm = document.getElementById('v2-contacto');
+if (contactoForm) {
+    contactoForm.addEventListener('submit', () => {
+        const nombre = document.getElementById('c-nombre').value.trim();
+        if (nombre) {
+            localStorage.setItem('nombreUsuario', nombre);
+        }
+    });
+}

@@ -10,50 +10,63 @@
   <link rel="stylesheet" href="../css/components.css">
 </head>
 <body>
-  <div id="top" class="barra">
-    <h1 style="margin:0;">Recetas Caseras Simples</h1>
-    <p style="margin:6px 0;">
-      <a href="../index.html#presentacion" class="nav-link">Presentación</a> |
-      <a href="recetas/saladas.html" class="nav-link">Recetas saladas</a> |
-      <a href="recetas/postres.html" class="nav-link">Postres</a> |
-      <a href="recetas/bebidas.html" class="nav-link">Bebidas (tragos)</a> |
-      <a href="share.html" class="nav-link">Compartí tu receta</a> |
-      <a href="map.html" class="nav-link">Mapa</a> |
-      <a href="contact.html" class="nav-link">Contacto</a>
-    </p>
-  </div>
+  <header id="top" class="barra">
+    <div class="barra__contenedor">
+      <div class="barra__titulo">
+        <h1>Recetas Caseras Simples</h1>
+        <p class="barra__subtitulo">Ideas caseras, fáciles y listas en pocos minutos.</p>
+      </div>
+      <nav class="barra__navegacion">
+        <ul>
+          <li><a href="../index.html#presentacion" class="nav-link">Presentación</a></li>
+          <li><a href="recetas/saladas.html" class="nav-link">Recetas saladas</a></li>
+          <li><a href="recetas/postres.html" class="nav-link">Postres</a></li>
+          <li><a href="recetas/bebidas.html" class="nav-link">Bebidas</a></li>
+          <li><a href="share.html" class="nav-link">Compartí tu receta</a></li>
+          <li><a href="map.html" class="nav-link">Mapa</a></li>
+          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <hr>
-
-  <div id="compartir" class="caja">
+  <main id="compartir" class="caja">
     <h2>Compartí tu receta</h2>
 
-    <div id="v2-drop" class="dropzone" title="Soltá aquí una foto (JPG/PNG) de tu receta">
-      Soltá acá la <b>foto</b> de tu receta (JPG/PNG). <br>Luego completá el formulario y publicala 👇
+    <div id="v2-drop" class="dropzone" title="Soltá acá una foto (JPG/PNG) de tu receta">
+      Soltá acá la <strong>foto</strong> de tu receta (JPG/PNG). <br>Luego completá el formulario y publicala.
       <div id="v2-preview"></div>
     </div>
 
     <form class="mini-form" id="v2-compartir">
       <label for="cr-nombre">Nombre receta:</label>
-      <input type="text" id="cr-nombre" required><br>
+      <input type="text" id="cr-nombre" required>
+
       <label for="cr-ingred">Ingredientes:</label>
-      <input type="text" id="cr-ingred" placeholder="separados por coma" required><br>
+      <input type="text" id="cr-ingred" placeholder="separados por coma" required>
+
       <label for="cr-pasos">Pasos:</label>
       <textarea id="cr-pasos" required></textarea>
+
       <label for="cr-mins">Minutos:</label>
-      <input type="number" id="cr-mins" min="1" max="240" value="10" required><br>
-      <label><input type="checkbox" id="cr-veg"> Vegetariana</label><br>
+      <input type="number" id="cr-mins" min="1" max="240" value="10" required>
+
+      <label class="checkbox" for="cr-veg">
+        <input type="checkbox" id="cr-veg"> Vegetariana
+      </label>
+
       <input type="submit" value="Publicar receta">
     </form>
 
     <h4>Recetas de la comunidad</h4>
     <ul id="v2-recetas-nuevas"></ul>
 
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
+    <p class="volver"><a href="#top">&uarr; Volver arriba</a></p>
+  </main>
 
-  <hr>
-  <p style="text-align:center;"><small>&copy; 2025 Recetas Caseras Simples</small></p>
+  <footer class="pie">
+    <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
+  </footer>
 
   <script src="../js/storage.js"></script>
   <script src="../js/share.js"></script>

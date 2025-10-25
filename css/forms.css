@@ -1,33 +1,74 @@
 /* Estilos para formularios */
-.mini-form label { 
-    display:inline-block; 
-    min-width:110px; 
-    margin:4px 0; 
+.mini-form {
+    display: grid;
+    gap: 10px;
+}
+
+.mini-form label {
+    font-weight: bold;
+}
+
+.mini-form label.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+}
+
+.mini-form label.checkbox input {
+    margin: 0;
 }
 
 .mini-form input[type="text"],
 .mini-form input[type="number"],
 .mini-form input[type="email"],
 .mini-form input[type="password"],
-.mini-form textarea { 
-    padding:4px; 
+.mini-form textarea {
+    padding: 6px 8px;
+    border: 1px solid #c9b7a8;
+    border-radius: 4px;
+    font-family: inherit;
 }
 
-.mini-form textarea { 
-    width: 100%; 
-    height: 70px; 
+.mini-form input:focus,
+.mini-form textarea:focus {
+    outline: 2px solid #e9a492;
+    border-color: #e9a492;
+}
+
+.mini-form textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.mini-form input[type="submit"] {
+    justify-self: start;
+    margin-top: 6px;
+    background: #e67a5a;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.mini-form input[type="submit"]:hover {
+    background: #d86846;
 }
 
 /* Dropzone para imágenes */
 .dropzone {
-    border:2px dashed #888; 
-    padding:12px; 
-    background:#fff; 
-    min-height:60px; 
-    text-align:center;
+    border: 2px dashed #b8bcc6;
+    padding: 16px;
+    background: #fff;
+    min-height: 120px;
+    text-align: center;
+    border-radius: 12px;
+    transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.dropzone.activa { 
-    border-color:#0a66c2; 
-    background:#f0f7ff; 
+.dropzone.activa {
+    border-color: #e67a5a;
+    background: #fff2ec;
 }

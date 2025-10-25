@@ -10,59 +10,99 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-  <div id="top" class="barra">
-    <h1 style="margin:0;">Recetas Caseras Simples</h1>
-    <p style="margin:6px 0;">
-      <a href="#presentacion" class="nav-link">Presentación</a> |
-      <a href="pages/recetas/saladas.html" class="nav-link">Recetas saladas</a> |
-      <a href="pages/recetas/postres.html" class="nav-link">Postres</a> |
-      <a href="pages/recetas/bebidas.html" class="nav-link">Bebidas (tragos)</a> |
-      <a href="pages/share.html" class="nav-link">Compartí tu receta</a> |
-      <a href="pages/map.html" class="nav-link">Mapa</a> |
-      <a href="pages/contact.html" class="nav-link">Contacto</a>
-    </p>
-  </div>
+  <header id="top" class="barra">
+    <div class="barra__contenedor">
+      <div class="barra__titulo">
+        <h1>Recetas Caseras Simples</h1>
+        <p class="barra__subtitulo">Ideas caseras, fáciles y listas en pocos minutos.</p>
+      </div>
+      <nav class="barra__navegacion">
+        <ul>
+          <li><a href="#presentacion" class="nav-link">Presentación</a></li>
+          <li><a href="pages/recetas/saladas.html" class="nav-link">Recetas saladas</a></li>
+          <li><a href="pages/recetas/postres.html" class="nav-link">Postres</a></li>
+          <li><a href="pages/recetas/bebidas.html" class="nav-link">Bebidas</a></li>
+          <li><a href="pages/share.html" class="nav-link">Compartí tu receta</a></li>
+          <li><a href="pages/map.html" class="nav-link">Mapa</a></li>
+          <li><a href="pages/contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <hr>
+  <main>
+    <section id="presentacion" class="presentacion caja">
+      <div class="presentacion__contenido">
+        <div class="presentacion__texto">
+          <h2 id="presentacion-titulo">¡Bienvenido!</h2>
+          <p>
+            Bienvenidos a <strong>Recetas Caseras Simples</strong>. Acá vas a encontrar ideas rápidas con
+            <em>ingredientes accesibles</em> para cocinar en casa sin complicarte.
+          </p>
+          <div class="presentacion__destacados">
+            <article class="destacado">
+              <h3>Recetas rápidas</h3>
+              <p>Preparaciones listas en 15 a 30 minutos para resolver tus comidas de la semana.</p>
+            </article>
+            <article class="destacado">
+              <h3>Ingredientes simples</h3>
+              <p>Elegimos recetas con lo que tenés en la heladera o conseguís en el barrio.</p>
+            </article>
+            <article class="destacado">
+              <h3>Resultados deliciosos</h3>
+              <p>Pasos claros para que cada plato salga sabroso, aunque tengas poca experiencia.</p>
+            </article>
+          </div>
+        </div>
 
-  <!-- Presentación -->
-  <div id="presentacion" class="caja">
-    <h2>Bienvenido!</h2>
-    <p>
-      Bienvenidos a <b>Recetas Caseras Simples</b>. Acá vas a encontrar ideas rápidas con
-      <i>ingredientes accesibles</i> para cocinar en casa sin complicarte.
-    </p>
+        <aside class="presentacion__filtros">
+          <form class="mini-form" id="v2-filtro" autocomplete="on">
+            <h3>Filtrar recetas</h3>
+            <label for="mins">Máx. minutos:</label>
+            <input type="number" id="mins" name="mins" min="1" max="120" value="15">
 
-    <!-- Filtro por minutos + vegetariana + palabra clave -->
-    <form class="mini-form" id="v2-filtro" autocomplete="on">
-      <h3>Filtrar recetas</h3>
-      <label for="mins">Máx. minutos:</label>
-      <input type="number" id="mins" name="mins" min="1" max="120" value="15">
-      <br>
-      <label>
-        <input type="checkbox" id="veg" name="veg"> Solo vegetarianas
-      </label>
-      <br>
-      <label for="kw">Palabra clave:</label>
-      <input type="text" id="kw" name="kw" placeholder="ej: tomate, banana, limón">
-      <br>
-      <input type="submit" value="Aplicar filtros">
-      <small> (te llevo a la primera receta que matchee) </small>
-    </form>
+            <label class="checkbox">
+              <input type="checkbox" id="veg" name="veg"> Solo vegetarianas
+            </label>
 
-    <!-- Saludo con localStorage -->
-    <p id="v2-saludo"></p>
+            <label for="kw">Palabra clave:</label>
+            <input type="text" id="kw" name="kw" placeholder="Ej: tomate, banana, limón">
 
-    <div class="galeria">
+            <small class="form-hint">Te llevamos a la primera receta que coincida.</small>
+            <input type="submit" value="Aplicar filtros">
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="atajos caja">
+      <h3>Elegí por categoría</h3>
+      <div class="atajos__grilla">
+        <a class="atajo" href="pages/recetas/saladas.html">
+          <strong>Saladas</strong>
+          <span>Pastas, tartas, guisos, ensaladas y más.</span>
+        </a>
+        <a class="atajo" href="pages/recetas/postres.html">
+          <strong>Dulces</strong>
+          <span>Postres caseros y meriendas fáciles.</span>
+        </a>
+        <a class="atajo" href="pages/recetas/bebidas.html">
+          <strong>Bebidas</strong>
+          <span>Tragos simples, licuados y refrescos.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="galeria caja">
       <img src="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg" 
            alt="Plato de comida casera" width="800" height="400">
-    </div>
+      <p class="volver"><a href="#top">&uarr; Volver arriba</a></p>
+    </section>
+  </main>
 
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
-
-  <hr>
-  <p style="text-align:center;"><small>&copy; 2025 Recetas Caseras Simples</small></p>
+  <footer class="pie">
+    <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
+  </footer>
 
   <script src="js/storage.js"></script>
   <script src="js/filter.js"></script>

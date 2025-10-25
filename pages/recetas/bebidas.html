@@ -10,22 +10,27 @@
   <link rel="stylesheet" href="../../css/components.css">
 </head>
 <body>
-  <div id="top" class="barra">
-    <h1 style="margin:0;">Recetas Caseras Simples</h1>
-    <p style="margin:6px 0;">
-      <a href="../../index.html#presentacion" class="nav-link">Presentación</a> |
-      <a href="saladas.html" class="nav-link">Recetas saladas</a> |
-      <a href="postres.html" class="nav-link">Postres</a> |
-      <a href="bebidas.html" class="nav-link">Bebidas (tragos)</a> |
-      <a href="../share.html" class="nav-link">Compartí tu receta</a> |
-      <a href="../map.html" class="nav-link">Mapa</a> |
-      <a href="../contact.html" class="nav-link">Contacto</a>
-    </p>
-  </div>
+  <header id="top" class="barra">
+    <div class="barra__contenedor">
+      <div class="barra__titulo">
+        <h1>Recetas Caseras Simples</h1>
+        <p class="barra__subtitulo">Ideas caseras, fáciles y listas en pocos minutos.</p>
+      </div>
+      <nav class="barra__navegacion">
+        <ul>
+          <li><a href="../../index.html#presentacion" class="nav-link">Presentación</a></li>
+          <li><a href="saladas.html" class="nav-link">Recetas saladas</a></li>
+          <li><a href="postres.html" class="nav-link">Postres</a></li>
+          <li><a href="bebidas.html" class="nav-link">Bebidas</a></li>
+          <li><a href="../share.html" class="nav-link">Compartí tu receta</a></li>
+          <li><a href="../map.html" class="nav-link">Mapa</a></li>
+          <li><a href="../contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <hr>
-
-  <div id="bebidas" class="caja">
+  <main id="bebidas" class="caja">
     <h2>Bebidas (tragos)</h2>
     <table>
       <caption>Refrescantes</caption>
@@ -37,17 +42,17 @@
       <tr data-mins="4" data-veg="true">
         <td>Limonada clásica</td>
         <td>Limón, agua fría, azúcar</td>
-        <td>Exprimir limón · Mezclar con agua y azúcar · Hielo opcional.</td>
+        <td>Exprimir limón - Mezclar con agua y azúcar - Agregar hielo opcional.</td>
       </tr>
       <tr data-mins="3" data-veg="true">
         <td>Naranja fresca</td>
         <td>Naranjas, agua</td>
-        <td>Exprimir naranjas · Rebajar con agua a gusto.</td>
+        <td>Exprimir naranjas - Rebajar con agua a gusto.</td>
       </tr>
       <tr data-mins="7" data-veg="true">
         <td>Smoothie de frutas</td>
         <td>Frutas varias, yogur, hielo</td>
-        <td>Licuar todo · Servir frío.</td>
+        <td>Licuar todo - Servir bien frío.</td>
       </tr>
     </table>
 
@@ -60,11 +65,12 @@
       <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">Ver en YouTube</a>
     </p>
 
-    <p class="volver"><a href="#top">↑ Volver arriba</a></p>
-  </div>
+    <p class="volver"><a href="#top">&uarr; Volver arriba</a></p>
+  </main>
 
-  <hr>
-  <p style="text-align:center;"><small>&copy; 2025 Recetas Caseras Simples</small></p>
+  <footer class="pie">
+    <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
+  </footer>
 
   <script src="../../js/storage.js"></script>
   <script src="../../js/filter.js"></script>
