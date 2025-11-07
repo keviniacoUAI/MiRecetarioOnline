@@ -2,14 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Kevin Martínez">
+  <meta name="description" content="Postres rápidos con ingredientes simples para la merienda o el antojo dulce.">
+  <meta name="keywords" content="postres fáciles, banana con miel, yogur con frutas">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="notranslate" content="no">
+  <meta name="google-site-verification" content="recetascaseras-verificacion-2025">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Recetas Caseras Simples">
+  <meta name="theme-color" content="#9c3f2c">
+  <meta name="content-language" content="es-AR">
+  <meta name="generator" content="Codex CLI">
+  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="content-language" content="es-AR">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Postres - Recetas Caseras Simples">
+  <meta property="og:description" content="Dulces y rápidos con ingredientes que ya tenés.">
+  <meta property="og:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
+  <meta property="og:url" content="https://mirecetarioonline.example/recetas/postres">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Postres - Recetas Caseras Simples">
+  <meta name="twitter:description" content="Recetas dulces listas en menos de 10 minutos.">
+  <meta name="twitter:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
   <title>Postres - Recetas Caseras Simples</title>
-  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="../../assets/icons/favicon-192.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/forms.css">
   <link rel="stylesheet" href="../../css/components.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header id="top" class="barra">
     <div class="barra__contenedor">
       <div class="barra__titulo">
@@ -20,7 +48,7 @@
         <ul>
           <li><a href="../../index.html#presentacion" class="nav-link">Presentación</a></li>
           <li><a href="saladas.html" class="nav-link">Recetas saladas</a></li>
-          <li><a href="postres.html" class="nav-link">Postres</a></li>
+          <li><a href="postres.html" class="nav-link" aria-current="page">Postres</a></li>
           <li><a href="bebidas.html" class="nav-link">Bebidas</a></li>
           <li><a href="../share.html" class="nav-link">Compartí tu receta</a></li>
           <li><a href="../map.html" class="nav-link">Mapa</a></li>
@@ -30,49 +58,55 @@
     </div>
   </header>
 
-  <main id="postres" class="caja">
+  <main id="contenido-principal" class="caja" tabindex="-1">
     <h2>Postres</h2>
-    <table>
+    <table class="tabla tabla--recetas">
       <caption>Dulces y rápidos</caption>
-      <tr>
-        <th>Receta</th>
-        <th>Ingredientes</th>
-        <th>Pasos</th>
-      </tr>
-      <tr data-mins="3" data-veg="true">
-        <td>Banana con miel</td>
-        <td>1 banana, 1 cda de miel</td>
-        <td>Cortar banana en rodajas - Agregar miel por encima.</td>
-      </tr>
-      <tr data-mins="5" data-veg="true">
-        <td>Yogur con frutas</td>
-        <td>Yogur natural, fruta a elección</td>
-        <td>Mezclar yogur con trocitos de fruta - Servir frío.</td>
-      </tr>
-      <tr data-mins="2" data-veg="true">
-        <td>Manzana tibia con canela</td>
-        <td>1 manzana, azúcar, canela</td>
-        <td>Filetear manzana - Espolvorear azúcar y canela - Calentar unos minutos.</td>
-      </tr>
+      <thead>
+        <tr>
+          <th scope="col">Receta</th>
+          <th scope="col">Ingredientes</th>
+          <th scope="col">Pasos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-mins="3" data-veg="true">
+          <td data-label="Receta">Banana con miel</td>
+          <td data-label="Ingredientes">1 banana, 1 cda de miel</td>
+          <td data-label="Pasos">Cortar banana en rodajas - Agregar miel por encima.</td>
+        </tr>
+        <tr data-mins="5" data-veg="true">
+          <td data-label="Receta">Yogur con frutas</td>
+          <td data-label="Ingredientes">Yogur natural, fruta a elección</td>
+          <td data-label="Pasos">Mezclar yogur con trocitos de fruta - Servir frío.</td>
+        </tr>
+        <tr data-mins="2" data-veg="true">
+          <td data-label="Receta">Manzana tibia con canela</td>
+          <td data-label="Ingredientes">1 manzana, azúcar, canela</td>
+          <td data-label="Pasos">Filetear manzana - Espolvorear azúcar y canela - Calentar unos minutos.</td>
+        </tr>
+      </tbody>
     </table>
 
-    <h3>Video recomendado: Banana caramelizada con miel</h3>
-    <p>
-      <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/bujhyAsKolc/hqdefault.jpg"
-             alt="Video: Banana con miel" width="480" height="270">
-      </a><br>
-      <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">Ver en YouTube</a>
-    </p>
-
-    </main>
+    <section aria-labelledby="video-dulce">
+      <h3 id="video-dulce">Video recomendado: banana caramelizada con miel</h3>
+      <figure>
+        <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/bujhyAsKolc/hqdefault.jpg"
+               alt="Video: Banana con miel" width="480" height="270">
+        </a>
+        <figcaption>
+          <a href="https://www.youtube.com/watch?v=bujhyAsKolc" target="_blank" rel="noopener">Ver en YouTube</a>
+        </figcaption>
+      </figure>
+    </section>
+  </main>
 
   <footer class="pie">
     <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
   </footer>
 
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/filter.js"></script>
+  <script src="../../js/storage.js" defer></script>
+  <script src="../../js/filter.js" defer></script>
 </body>
 </html>
-

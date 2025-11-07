@@ -2,14 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Kevin Martínez">
+  <meta name="description" content="Bebidas refrescantes y smoothies listos en minutos.">
+  <meta name="keywords" content="limonada casera, smoothie, bebidas fáciles">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="notranslate" content="no">
+  <meta name="google-site-verification" content="recetascaseras-verificacion-2025">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Recetas Caseras Simples">
+  <meta name="theme-color" content="#9c3f2c">
+  <meta name="content-language" content="es-AR">
+  <meta name="generator" content="Codex CLI">
+  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="content-language" content="es-AR">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bebidas - Recetas Caseras Simples">
+  <meta property="og:description" content="Tragos y licuados con ingredientes cotidianos.">
+  <meta property="og:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
+  <meta property="og:url" content="https://mirecetarioonline.example/recetas/bebidas">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bebidas - Recetas Caseras Simples">
+  <meta name="twitter:description" content="Recetas de limonada, jugos y smoothies.">
+  <meta name="twitter:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
   <title>Bebidas - Recetas Caseras Simples</title>
-  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="../../assets/icons/favicon-192.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/forms.css">
   <link rel="stylesheet" href="../../css/components.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header id="top" class="barra">
     <div class="barra__contenedor">
       <div class="barra__titulo">
@@ -21,7 +49,7 @@
           <li><a href="../../index.html#presentacion" class="nav-link">Presentación</a></li>
           <li><a href="saladas.html" class="nav-link">Recetas saladas</a></li>
           <li><a href="postres.html" class="nav-link">Postres</a></li>
-          <li><a href="bebidas.html" class="nav-link">Bebidas</a></li>
+          <li><a href="bebidas.html" class="nav-link" aria-current="page">Bebidas</a></li>
           <li><a href="../share.html" class="nav-link">Compartí tu receta</a></li>
           <li><a href="../map.html" class="nav-link">Mapa</a></li>
           <li><a href="../contact.html" class="nav-link">Contacto</a></li>
@@ -30,49 +58,55 @@
     </div>
   </header>
 
-  <main id="bebidas" class="caja">
+  <main id="contenido-principal" class="caja" tabindex="-1">
     <h2>Bebidas (tragos)</h2>
-    <table>
+    <table class="tabla tabla--recetas">
       <caption>Refrescantes</caption>
-      <tr>
-        <th>Bebida</th>
-        <th>Ingredientes</th>
-        <th>Pasos</th>
-      </tr>
-      <tr data-mins="4" data-veg="true">
-        <td>Limonada clásica</td>
-        <td>Limón, agua fría, azúcar</td>
-        <td>Exprimir limón - Mezclar con agua y azúcar - Agregar hielo opcional.</td>
-      </tr>
-      <tr data-mins="3" data-veg="true">
-        <td>Naranja fresca</td>
-        <td>Naranjas, agua</td>
-        <td>Exprimir naranjas - Rebajar con agua a gusto.</td>
-      </tr>
-      <tr data-mins="7" data-veg="true">
-        <td>Smoothie de frutas</td>
-        <td>Frutas varias, yogur, hielo</td>
-        <td>Licuar todo - Servir bien frío.</td>
-      </tr>
+      <thead>
+        <tr>
+          <th scope="col">Bebida</th>
+          <th scope="col">Ingredientes</th>
+          <th scope="col">Pasos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-mins="4" data-veg="true">
+          <td data-label="Bebida">Limonada clásica</td>
+          <td data-label="Ingredientes">Limón, agua fría, azúcar</td>
+          <td data-label="Pasos">Exprimir limón - Mezclar con agua y azúcar - Agregar hielo opcional.</td>
+        </tr>
+        <tr data-mins="3" data-veg="true">
+          <td data-label="Bebida">Naranja fresca</td>
+          <td data-label="Ingredientes">Naranjas, agua</td>
+          <td data-label="Pasos">Exprimir naranjas - Rebajar con agua a gusto.</td>
+        </tr>
+        <tr data-mins="7" data-veg="true">
+          <td data-label="Bebida">Smoothie de frutas</td>
+          <td data-label="Ingredientes">Frutas varias, yogur, hielo</td>
+          <td data-label="Pasos">Licuar todo - Servir bien frío.</td>
+        </tr>
+      </tbody>
     </table>
 
-    <h3>Video recomendado: Limonada casera</h3>
-    <p>
-      <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/a2pJiCcXSLI/hqdefault.jpg"
-             alt="Video: Limonada casera" width="480" height="270">
-      </a><br>
-      <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">Ver en YouTube</a>
-    </p>
-
-    </main>
+    <section aria-labelledby="video-bebida">
+      <h3 id="video-bebida">Video recomendado: limonada casera</h3>
+      <figure>
+        <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/a2pJiCcXSLI/hqdefault.jpg"
+               alt="Video: Limonada casera" width="480" height="270">
+        </a>
+        <figcaption>
+          <a href="https://www.youtube.com/watch?v=a2pJiCcXSLI" target="_blank" rel="noopener">Ver en YouTube</a>
+        </figcaption>
+      </figure>
+    </section>
+  </main>
 
   <footer class="pie">
     <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
   </footer>
 
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/filter.js"></script>
+  <script src="../../js/storage.js" defer></script>
+  <script src="../../js/filter.js" defer></script>
 </body>
 </html>
-

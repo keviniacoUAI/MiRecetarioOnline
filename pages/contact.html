@@ -2,14 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Kevin Martínez">
+  <meta name="description" content="Contactate con Recetas Caseras Simples para enviar sugerencias o nuevas recetas.">
+  <meta name="keywords" content="contacto recetas, enviar receta, sugerencias cocina">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="notranslate" content="no">
+  <meta name="google-site-verification" content="recetascaseras-verificacion-2025">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Recetas Caseras Simples">
+  <meta name="theme-color" content="#9c3f2c">
+  <meta name="content-language" content="es-AR">
+  <meta name="generator" content="Codex CLI">
+  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="content-language" content="es-AR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contacto - Recetas Caseras Simples">
+  <meta property="og:description" content="Enviá tus dudas o propuestas y respondemos rápido.">
+  <meta property="og:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
+  <meta property="og:url" content="https://mirecetarioonline.example/contacto">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contacto - Recetas Caseras Simples">
+  <meta name="twitter:description" content="Sumate a la comunidad y contanos qué receta querés ver.">
+  <meta name="twitter:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
   <title>Contacto - Recetas Caseras Simples</title>
-  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/favicon-192.png">
+  <link rel="manifest" href="../manifest.webmanifest">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/forms.css">
   <link rel="stylesheet" href="../css/components.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header id="top" class="barra">
     <div class="barra__contenedor">
       <div class="barra__titulo">
@@ -24,17 +52,17 @@
           <li><a href="recetas/bebidas.html" class="nav-link">Bebidas</a></li>
           <li><a href="share.html" class="nav-link">Compartí tu receta</a></li>
           <li><a href="map.html" class="nav-link">Mapa</a></li>
-          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+          <li><a href="contact.html" class="nav-link" aria-current="page">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="contacto" class="caja">
+  <main id="contenido-principal" class="caja" tabindex="-1">
     <h2>Contacto</h2>
 
     <p>¿Tenés sugerencias o querés mandar tu receta? Completá tus datos y envianos un mensaje:</p>
-    <form class="mini-form" id="v2-contacto">
+    <form class="mini-form" id="v2-contacto" aria-describedby="contacto-feedback">
       <label for="c-nombre">Nombre:</label>
       <input type="text" id="c-nombre" name="nombre" required>
 
@@ -58,14 +86,12 @@
       Autor: Kevin - Buenos Aires, Argentina<br>
       Instagram: <a href="https://example.com" target="_blank" rel="noopener">/recetas_caseras</a>
     </address>
-
-    </main>
+  </main>
 
   <footer class="pie">
     <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
   </footer>
 
-  <script src="../js/storage.js"></script>
+  <script src="../js/storage.js" defer></script>
 </body>
 </html>
-

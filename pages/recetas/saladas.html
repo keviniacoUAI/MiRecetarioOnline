@@ -2,14 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Kevin Martínez">
+  <meta name="description" content="Recetas saladas rápidas y fáciles con ingredientes accesibles.">
+  <meta name="keywords" content="recetas saladas, comida rápida, omelette, arroz fácil">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="notranslate" content="no">
+  <meta name="google-site-verification" content="recetascaseras-verificacion-2025">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Recetas Caseras Simples">
+  <meta name="theme-color" content="#9c3f2c">
+  <meta name="content-language" content="es-AR">
+  <meta name="generator" content="Codex CLI">
+  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="content-language" content="es-AR">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Recetas Saladas - Recetas Caseras Simples">
+  <meta property="og:description" content="Pastas, tartas y guisos simples para todos los días.">
+  <meta property="og:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
+  <meta property="og:url" content="https://mirecetarioonline.example/recetas/saladas">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Recetas Saladas - Recetas Caseras Simples">
+  <meta name="twitter:description" content="Elegí recetas vegetarianas listas en minutos.">
+  <meta name="twitter:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
   <title>Recetas Saladas - Recetas Caseras Simples</title>
-  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="../../assets/icons/favicon-192.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/forms.css">
   <link rel="stylesheet" href="../../css/components.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header id="top" class="barra">
     <div class="barra__contenedor">
       <div class="barra__titulo">
@@ -19,7 +47,7 @@
       <nav class="barra__navegacion">
         <ul>
           <li><a href="../../index.html#presentacion" class="nav-link">Presentación</a></li>
-          <li><a href="saladas.html" class="nav-link">Recetas saladas</a></li>
+          <li><a href="saladas.html" class="nav-link" aria-current="page">Recetas saladas</a></li>
           <li><a href="postres.html" class="nav-link">Postres</a></li>
           <li><a href="bebidas.html" class="nav-link">Bebidas</a></li>
           <li><a href="../share.html" class="nav-link">Compartí tu receta</a></li>
@@ -30,49 +58,55 @@
     </div>
   </header>
 
-  <main id="saladas" class="caja">
+  <main id="contenido-principal" class="caja" tabindex="-1">
     <h2>Recetas saladas</h2>
-    <table>
+    <table class="tabla tabla--recetas">
       <caption>Fáciles para todos los días</caption>
-      <tr>
-        <th>Receta</th>
-        <th>Ingredientes</th>
-        <th>Pasos</th>
-      </tr>
-      <tr data-mins="5" data-veg="true">
-        <td>Tostadas con tomate</td>
-        <td>Pan, 1 tomate maduro, aceite, sal</td>
-        <td>Tostar pan - Frotar tomate - Un chorrito de aceite - Sal a gusto.</td>
-      </tr>
-      <tr data-mins="18" data-veg="true">
-        <td>Arroz súper rápido</td>
-        <td>Arroz, agua, sal</td>
-        <td>Hervir agua - Agregar arroz y sal - Cocinar hasta que esté tierno y reposar 5 min.</td>
-      </tr>
-      <tr data-mins="10" data-veg="true">
-        <td>Omelette básico</td>
-        <td>2 huevos, queso, sal, pimienta</td>
-        <td>Batir huevos - Salpimentar - Cocinar en sartén - Rellenar con queso y doblar.</td>
-      </tr>
+      <thead>
+        <tr>
+          <th scope="col">Receta</th>
+          <th scope="col">Ingredientes</th>
+          <th scope="col">Pasos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-mins="5" data-veg="true">
+          <td data-label="Receta">Tostadas con tomate</td>
+          <td data-label="Ingredientes">Pan, 1 tomate maduro, aceite, sal</td>
+          <td data-label="Pasos">Tostar pan - Frotar tomate - Un chorrito de aceite - Sal a gusto.</td>
+        </tr>
+        <tr data-mins="18" data-veg="true">
+          <td data-label="Receta">Arroz súper rápido</td>
+          <td data-label="Ingredientes">Arroz, agua, sal</td>
+          <td data-label="Pasos">Hervir agua - Agregar arroz y sal - Cocinar hasta que esté tierno y reposar 5 min.</td>
+        </tr>
+        <tr data-mins="10" data-veg="true">
+          <td data-label="Receta">Omelette básico</td>
+          <td data-label="Ingredientes">2 huevos, queso, sal, pimienta</td>
+          <td data-label="Pasos">Batir huevos - Salpimentar - Cocinar en sartén - Rellenar con queso y doblar.</td>
+        </tr>
+      </tbody>
     </table>
 
-    <h3>Video recomendado: Receta fácil de omelette</h3>
-    <p>
-      <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/9feEKoL0YWQ/hqdefault.jpg"
-             alt="Video: Omelette fácil" width="480" height="270">
-      </a><br>
-      <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">Ver en YouTube</a>
-    </p>
-
-    </main>
+    <section aria-labelledby="video-salado">
+      <h3 id="video-salado">Video recomendado: receta fácil de omelette</h3>
+      <figure>
+        <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/9feEKoL0YWQ/hqdefault.jpg"
+               alt="Video: Omelette fácil" width="480" height="270">
+        </a>
+        <figcaption>
+          <a href="https://www.youtube.com/watch?v=9feEKoL0YWQ" target="_blank" rel="noopener">Ver en YouTube</a>
+        </figcaption>
+      </figure>
+    </section>
+  </main>
 
   <footer class="pie">
     <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
   </footer>
 
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/filter.js"></script>
+  <script src="../../js/storage.js" defer></script>
+  <script src="../../js/filter.js" defer></script>
 </body>
 </html>
-

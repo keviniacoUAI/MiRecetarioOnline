@@ -57,6 +57,20 @@
     background: #d86846;
 }
 
+.form-feedback {
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: #0a66c2;
+}
+
+.form-feedback.is-error {
+    color: #c0392b;
+}
+
+.form-feedback.is-success {
+    color: #2f7a3d;
+}
+
 /* Dropzone para imágenes */
 .dropzone {
     border: 2px dashed #b8bcc6;

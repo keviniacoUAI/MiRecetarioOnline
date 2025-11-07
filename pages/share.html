@@ -2,14 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Kevin Martínez">
+  <meta name="description" content="Compartí tus recetas caseras, ingredientes, fotos y minutos de preparación.">
+  <meta name="keywords" content="compartir receta, enviar receta, comunidad cocina">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="notranslate" content="no">
+  <meta name="google-site-verification" content="recetascaseras-verificacion-2025">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Recetas Caseras Simples">
+  <meta name="theme-color" content="#9c3f2c">
+  <meta name="content-language" content="es-AR">
+  <meta name="generator" content="Codex CLI">
+  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="content-language" content="es-AR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Compartí tu Receta - Recetas Caseras Simples">
+  <meta property="og:description" content="Subí ingredientes, pasos y foto para sumarte a la comunidad.">
+  <meta property="og:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
+  <meta property="og:url" content="https://mirecetarioonline.example/compartir">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compartí tu Receta - Recetas Caseras Simples">
+  <meta name="twitter:description" content="Publicá tus platos favoritos con un formulario accesible.">
+  <meta name="twitter:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
   <title>Compartí tu Receta - Recetas Caseras Simples</title>
-  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/favicon-192.png">
+  <link rel="manifest" href="../manifest.webmanifest">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/forms.css">
   <link rel="stylesheet" href="../css/components.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header id="top" class="barra">
     <div class="barra__contenedor">
       <div class="barra__titulo">
@@ -22,7 +50,7 @@
           <li><a href="recetas/saladas.html" class="nav-link">Recetas saladas</a></li>
           <li><a href="recetas/postres.html" class="nav-link">Postres</a></li>
           <li><a href="recetas/bebidas.html" class="nav-link">Bebidas</a></li>
-          <li><a href="share.html" class="nav-link">Compartí tu receta</a></li>
+          <li><a href="share.html" class="nav-link" aria-current="page">Compartí tu receta</a></li>
           <li><a href="map.html" class="nav-link">Mapa</a></li>
           <li><a href="contact.html" class="nav-link">Contacto</a></li>
         </ul>
@@ -30,15 +58,15 @@
     </div>
   </header>
 
-  <main id="compartir" class="caja">
+  <main id="contenido-principal" class="caja" tabindex="-1">
     <h2>Compartí tu receta</h2>
 
-    <div id="v2-drop" class="dropzone" title="Soltá acá una foto (JPG/PNG) de tu receta">
+    <div id="v2-drop" class="dropzone" title="Soltá acá una foto (JPG/PNG) de tu receta" role="region" aria-live="polite">
       Soltá acá la <strong>foto</strong> de tu receta (JPG/PNG). <br>Luego completá el formulario y publicala.
       <div id="v2-preview"></div>
     </div>
 
-    <form class="mini-form" id="v2-compartir">
+    <form class="mini-form" id="v2-compartir" aria-describedby="compartir-ayuda">
       <label for="cr-nombre">Nombre receta:</label>
       <input type="text" id="cr-nombre" required>
 
@@ -55,20 +83,21 @@
         <input type="checkbox" id="cr-veg"> Vegetariana
       </label>
 
+      <p id="compartir-ayuda" class="form-hint">Completá todos los campos. Publicaremos la receta en la lista inferior.</p>
       <input type="submit" value="Publicar receta">
     </form>
 
+    <p class="form-feedback" role="status" aria-live="polite" id="compartir-feedback"></p>
+
     <h4>Recetas de la comunidad</h4>
     <ul id="v2-recetas-nuevas"></ul>
-
-    </main>
+  </main>
 
   <footer class="pie">
     <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
   </footer>
 
-  <script src="../js/storage.js"></script>
-  <script src="../js/share.js"></script>
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/share.js" defer></script>
 </body>
 </html>
-

@@ -1,29 +1,27 @@
 // Manejo de localStorage y sessionStorage
-// Última sección visitada
-document.querySelectorAll('.nav-link').forEach(link => {
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach((link) => {
     link.addEventListener('click', () => {
         sessionStorage.setItem('ultimaSeccion', link.getAttribute('href'));
     });
 });
 
-// Saludo personalizado en la portada
 const nombreGuardado = localStorage.getItem('nombreUsuario');
 const presentacionTitulo = document.getElementById('presentacion-titulo');
 
 if (presentacionTitulo && nombreGuardado) {
-    presentacionTitulo.textContent = 'Hola ' + nombreGuardado + ' 👋 ¡bienvenido de nuevo!';
+    presentacionTitulo.textContent = `Hola ${nombreGuardado}, ¡bienvenido de nuevo!`;
     presentacionTitulo.classList.add('presentacion__titulo--personalizado');
 }
 
-// Gestión del formulario de contacto
 const CONTACTO_STORAGE_KEY = 'contactoMensajes';
 
 function obtenerMensajesContacto() {
     try {
         const datos = localStorage.getItem(CONTACTO_STORAGE_KEY);
         return datos ? JSON.parse(datos) : [];
-    } catch (err) {
-        console.error('No pude leer los mensajes de contacto guardados:', err);
+    } catch (error) {
+        console.error('No pude leer los mensajes de contacto guardados:', error);
         return [];
     }
 }
@@ -44,7 +42,7 @@ function renderizarMensajesContacto(listaElemento, historialSeccion, mensajes) {
 
     historialSeccion.hidden = false;
 
-    mensajes.forEach(mensaje => {
+    mensajes.forEach((mensaje) => {
         const item = document.createElement('li');
 
         const titulo = document.createElement('strong');
@@ -56,7 +54,7 @@ function renderizarMensajesContacto(listaElemento, historialSeccion, mensajes) {
                 dateStyle: 'short',
                 timeStyle: 'short'
             });
-        } catch (_) {
+        } catch (error) {
             fecha.textContent = mensaje.fecha;
         }
 

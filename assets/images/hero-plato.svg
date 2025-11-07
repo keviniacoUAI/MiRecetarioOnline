@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960" height="520" viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroTitle heroDesc">
+  <title id="heroTitle">Recetas caseras simples</title>
+  <desc id="heroDesc">Ilustración minimalista de un plato con ingredientes frescos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff3eb"/>
+      <stop offset="100%" stop-color="#ffe1d2"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f4f4f4"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="520" fill="url(#bg)" rx="32"/>
+  <circle cx="480" cy="260" r="180" fill="url(#plate)" stroke="#f1ceb7" stroke-width="12"/>
+  <circle cx="480" cy="260" r="120" fill="#fffaf0" stroke="#f8dccc" stroke-width="6"/>
+  <path d="M330 220 Q480 120 630 220" fill="none" stroke="#f5b197" stroke-width="18" stroke-linecap="round"/>
+  <path d="M330 300 Q480 400 630 300" fill="none" stroke="#e77b5c" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="420" cy="250" r="22" fill="#6dbb67"/>
+  <circle cx="540" cy="290" r="20" fill="#f5c542"/>
+  <circle cx="520" cy="220" r="16" fill="#67a7e1"/>
+  <circle cx="460" cy="320" r="14" fill="#f0899c"/>
+  <path d="M390 180 Q400 160 420 170 T450 190" fill="none" stroke="#6dbb67" stroke-width="10" stroke-linecap="round"/>
+  <path d="M520 150 Q540 140 560 155 T600 190" fill="none" stroke="#67a7e1" stroke-width="10" stroke-linecap="round"/>
+</svg>

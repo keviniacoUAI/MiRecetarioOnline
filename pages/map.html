@@ -2,13 +2,41 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Kevin Martínez">
+  <meta name="description" content="Encontrá lugares de comida cercanos con el mapa integrado y tu ubicación.">
+  <meta name="keywords" content="mapa comida, restaurantes cerca, geolocalización">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="notranslate" content="no">
+  <meta name="google-site-verification" content="recetascaseras-verificacion-2025">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Recetas Caseras Simples">
+  <meta name="theme-color" content="#9c3f2c">
+  <meta name="content-language" content="es-AR">
+  <meta name="generator" content="Codex CLI">
+  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="content-language" content="es-AR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mapa - Recetas Caseras Simples">
+  <meta property="og:description" content="Explorá restaurantes cercanos desde nuestro mapa embebido.">
+  <meta property="og:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
+  <meta property="og:url" content="https://mirecetarioonline.example/mapa">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mapa - Recetas Caseras Simples">
+  <meta name="twitter:description" content="Conocé lugares de comida a pocos clics.">
+  <meta name="twitter:image" content="https://mirecetarioonline.example/assets/images/og-cover.png">
   <title>Mapa - Recetas Caseras Simples</title>
-  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/favicon-192.png">
+  <link rel="manifest" href="../manifest.webmanifest">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/components.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header id="top" class="barra">
     <div class="barra__contenedor">
       <div class="barra__titulo">
@@ -22,28 +50,28 @@
           <li><a href="recetas/postres.html" class="nav-link">Postres</a></li>
           <li><a href="recetas/bebidas.html" class="nav-link">Bebidas</a></li>
           <li><a href="share.html" class="nav-link">Compartí tu receta</a></li>
-          <li><a href="map.html" class="nav-link">Mapa</a></li>
+          <li><a href="map.html" class="nav-link" aria-current="page">Mapa</a></li>
           <li><a href="contact.html" class="nav-link">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="mapa" class="caja">
+  <main id="contenido-principal" class="caja mapa" tabindex="-1">
     <h2>Buscá lugares de comida cercanos</h2>
     <p>
-      <button id="v2-btn-mapa">Ver lugares cerca (embebido acá)</button>
+      <button id="v2-btn-mapa" type="button">Ver lugares cerca (embebido acá)</button>
       <small>(usa tu ubicación del navegador)</small>
     </p>
+    <p id="map-feedback" class="form-feedback" role="status" aria-live="polite"></p>
     <iframe id="v2-iframe-mapa" title="Mapa de tu zona (Google Maps embebido)" loading="lazy"></iframe>
-    </main>
+  </main>
 
   <footer class="pie">
     <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
   </footer>
 
-  <script src="../js/storage.js"></script>
-  <script src="../js/map.js"></script>
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/map.js" defer></script>
 </body>
 </html>
-

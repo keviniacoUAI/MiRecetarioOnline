@@ -2,7 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Kevin Iacovantuono">
+  <meta name="description" content="Recetas caseras simples con pasos claros, ingredientes accesibles y filtros inteligentes para encontrar comidas rápidas.">
+  <meta name="keywords" content="recetas caseras, cocina fácil, postres rápidos, comidas saludables, bebidas frescas">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="notranslate" content="no">
+  <meta name="google-site-verification" content="pendiente_de_configurar">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Recetas Caseras Simples">
+  <meta name="theme-color" content="#9c3f2c">
+  <meta name="content-language" content="es-AR">
+  <meta name="generator" content="Codex CLI">
+  <meta http-equiv="refresh" content="120">
+  <meta http-equiv="content-language" content="es-AR">
+  <meta http-equiv="cache-control" content="public">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Recetas Caseras Simples">
+  <meta property="og:description" content="Ideas caseras, fáciles y listas en pocos minutos.">
+  <meta property="og:image" content="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg">
+  <meta property="og:url" content="https://mirecetarioonline.example/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Recetas Caseras Simples">
+  <meta name="twitter:description" content="Elegí recetas saladas, dulces y bebidas con ingredientes que ya tenés.">
+  <meta name="twitter:image" content="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg">
   <title>Recetas Caseras Simples</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
@@ -10,6 +35,7 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
   <header id="top" class="barra">
     <div class="barra__contenedor">
       <div class="barra__titulo">
@@ -18,7 +44,7 @@
       </div>
       <nav class="barra__navegacion">
         <ul>
-          <li><a href="#presentacion" class="nav-link">Presentación</a></li>
+          <li><a href="#presentacion" class="nav-link" aria-current="page">Presentación</a></li>
           <li><a href="pages/recetas/saladas.html" class="nav-link">Recetas saladas</a></li>
           <li><a href="pages/recetas/postres.html" class="nav-link">Postres</a></li>
           <li><a href="pages/recetas/bebidas.html" class="nav-link">Bebidas</a></li>
@@ -30,7 +56,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="contenido-principal">
     <section id="presentacion" class="presentacion caja">
       <div class="presentacion__contenido">
         <div class="presentacion__texto">
@@ -56,8 +82,9 @@
         </div>
 
         <aside class="presentacion__filtros">
-          <form class="mini-form" id="v2-filtro" autocomplete="on">
+          <form class="mini-form" id="v2-filtro" autocomplete="on" aria-describedby="filtro-feedback filtro-hint">
             <h3>Filtrar recetas</h3>
+            <p id="filtro-feedback" class="sr-only" role="status" aria-live="polite"></p>
             <label for="mins">Máx. minutos:</label>
             <input type="number" id="mins" name="mins" min="1" max="120" value="15">
 
@@ -68,7 +95,7 @@
             <label for="kw">Palabra clave:</label>
             <input type="text" id="kw" name="kw" placeholder="Ej: tomate, banana, limón">
 
-            <small class="form-hint">Te llevamos a la primera receta que coincida.</small>
+            <small class="form-hint" id="filtro-hint">Te llevamos a la primera receta que coincida.</small>
             <input type="submit" value="Aplicar filtros">
           </form>
         </aside>
@@ -94,17 +121,16 @@
     </section>
 
     <section class="galeria caja">
-      <img src="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg" 
+      <img src="https://www.greenpeace.org/static/planet4-colombia-stateless/2020/06/fd2920e2-blog1.jpg"
            alt="Plato de comida casera" width="800" height="400">
-      </section>
+    </section>
   </main>
 
   <footer class="pie">
     <p><small>&copy; 2025 Recetas Caseras Simples</small></p>
   </footer>
 
-  <script src="js/storage.js"></script>
-  <script src="js/filter.js"></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/filter.js" defer></script>
 </body>
 </html>
-
