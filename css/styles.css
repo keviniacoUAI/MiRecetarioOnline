@@ -138,6 +138,46 @@ a:hover {
     color: #cc5c3b;
 }
 
+/* Contacto */
+.contacto__feedback {
+    margin-top: 16px;
+    font-weight: bold;
+    color: #2f7a3d;
+}
+
+.contacto__historial {
+    margin-top: 28px;
+    padding: 18px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+.contacto__historial h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.contacto__historial ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.contacto__historial li {
+    border: 1px solid #f1ceb7;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fffaf0;
+}
+
+.contacto__historial li strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
 /* Atajos */
 .atajos {
     max-width: 960px;

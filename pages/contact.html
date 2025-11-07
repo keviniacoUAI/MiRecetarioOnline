@@ -34,7 +34,7 @@
     <h2>Contacto</h2>
 
     <p>¿Tenés sugerencias o querés mandar tu receta? Completá tus datos y envianos un mensaje:</p>
-    <form class="mini-form" id="v2-contacto" action="mailto:recetas@ejemplo.com" method="post" enctype="text/plain">
+    <form class="mini-form" id="v2-contacto">
       <label for="c-nombre">Nombre:</label>
       <input type="text" id="c-nombre" name="nombre" required>
 
@@ -46,6 +46,13 @@
 
       <input type="submit" value="Enviar">
     </form>
+
+    <p id="contacto-feedback" class="contacto__feedback" role="status" aria-live="polite"></p>
+
+    <section id="contacto-historial" class="contacto__historial" hidden>
+      <h3>Mensajes guardados</h3>
+      <ul id="contacto-lista"></ul>
+    </section>
 
     <address>
       Autor: Kevin - Buenos Aires, Argentina<br>
