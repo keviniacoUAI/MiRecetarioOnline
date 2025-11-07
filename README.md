@@ -30,17 +30,4 @@ Sitio estático con recetas caseras simples (saladas, dulces y bebidas), filtros
 - Formularios con mensajes accesibles (`aria-live`) y almacenamiento local.
 - Hoja de estilos externa + fuentes de Google y media queries para móviles.
 - JS modular con `defer`, `addEventListener`, `localStorage` y feedback no intrusivo.
-- Íconos multi-resolución + `manifest.webmanifest` listo para pruebas PWA.
-
-## Pruebas y validaciones
-
-- [ ] Validar HTML y CSS en https://validator.w3.org/ y https://jigsaw.w3.org/css-validator/.
-- [ ] Ejecutar Lighthouse (Chrome DevTools) en modo móvil y desktop.
-- [ ] Navegar el sitio en Chrome/Edge/Firefox verificando filtros, formularios y geolocalización del mapa.
-- [ ] Sustituir `google-site-verification` por el token real de Search Console una vez desplegado.
-
-## Próximos pasos sugeridos
-
-1. Optimizar o sustituir imágenes por versiones WebP ligeras y actualizar `srcset`.
-2. Añadir pruebas manuales/documentadas en distintos navegadores y dispositivos reales.
-3. Publicar el sitio y completar la verificación con Google Search Console/Lighthouse.
+- Íconos multi-resolución + `manifest.webmanifest` listo para pruebas PWA. 

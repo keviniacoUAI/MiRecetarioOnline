@@ -1,4 +1,7 @@
 const filtroFeedback = document.getElementById('filtro-feedback');
+const FILTER_SESSION_KEY = 'filtro';
+let panelResultados = null;
+let escapeListenerRegistrado = false;
 
 function obtenerRecetasDePagina() {
     const recetas = [];
@@ -44,6 +47,133 @@ function sincronizarRecetas() {
     return todasLasRecetas;
 }
 
+function guardarFiltroEstado(coincidencias, criterios) {
+    const estado = {
+        coincidencias,
+        criterios,
+        indiceActual: 0
+    };
+    sessionStorage.setItem(FILTER_SESSION_KEY, JSON.stringify(estado));
+    return estado;
+}
+
+function obtenerFiltroGuardado() {
+    const raw = sessionStorage.getItem(FILTER_SESSION_KEY);
+    if (!raw) return null;
+    try {
+        return JSON.parse(raw);
+    } catch (error) {
+        console.error('No pude leer el estado del filtro:', error);
+        return null;
+    }
+}
+
+function mostrarPanelResultados(matches) {
+    if (!matches.length) return;
+    panelResultados = panelResultados || crearPanelResultados();
+
+    const list = panelResultados.querySelector('.filtro-panel__list');
+    list.innerHTML = '';
+    matches.forEach((match, index) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'filtro-panel__item';
+        const descripcion = document.createElement('div');
+        descripcion.innerHTML = `<strong>${match.nombre}</strong>
+            <span class="filtro-panel__meta">${obtenerNombreCategoria(match.pagina)} · ${match.minutos} min${match.vegetariana ? ' · Veg' : ''}</span>`;
+        item.appendChild(descripcion);
+        item.addEventListener('click', () => irAResultado(index));
+        list.appendChild(item);
+    });
+
+    const contador = panelResultados.querySelector('[data-result-count]');
+    const total = matches.length;
+    contador.textContent = `${total} coincidencia${total !== 1 ? 's' : ''}`;
+
+    panelResultados.classList.add('is-visible');
+    document.body.classList.add('dialog-open');
+    panelResultados.querySelector('.filtro-panel__content').focus();
+
+    if (!escapeListenerRegistrado) {
+        document.addEventListener('keydown', manejarEscapePanel, true);
+        escapeListenerRegistrado = true;
+    }
+}
+
+function cerrarPanelResultados() {
+    if (!panelResultados) return;
+    panelResultados.classList.remove('is-visible');
+    document.body.classList.remove('dialog-open');
+    if (escapeListenerRegistrado) {
+        document.removeEventListener('keydown', manejarEscapePanel, true);
+        escapeListenerRegistrado = false;
+    }
+}
+
+function manejarEscapePanel(event) {
+    if (event.key === 'Escape') {
+        event.stopPropagation();
+        cerrarPanelResultados();
+    }
+}
+
+function crearPanelResultados() {
+    const overlay = document.createElement('div');
+    overlay.id = 'filtro-panel';
+    overlay.className = 'filtro-panel';
+    overlay.innerHTML = `
+        <div class="filtro-panel__content" role="dialog" aria-modal="true" aria-labelledby="filtro-panel-title" tabindex="-1">
+            <div class="filtro-panel__header">
+                <div>
+                    <h3 id="filtro-panel-title">Coincidencias encontradas</h3>
+                    <p class="filtro-panel__meta" data-result-count></p>
+                </div>
+                <button type="button" class="filtro-panel__close" data-close aria-label="Cerrar panel">&times;</button>
+            </div>
+            <div class="filtro-panel__body">
+                <div class="filtro-panel__list" role="list"></div>
+                <div class="filtro-panel__actions">
+                    <button type="button" data-action="go-first">Ver primera coincidencia</button>
+                    <button type="button" data-action="limpiar">Limpiar filtro</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) {
+            cerrarPanelResultados();
+        }
+    });
+    overlay.querySelector('[data-close]').addEventListener('click', cerrarPanelResultados);
+    overlay.querySelector('[data-action="go-first"]').addEventListener('click', () => irAResultado(0));
+    overlay.querySelector('[data-action="limpiar"]').addEventListener('click', limpiarFiltro);
+
+    document.body.appendChild(overlay);
+    return overlay;
+}
+
+function obtenerNombreCategoria(pathname) {
+    if (!pathname) return 'Inicio';
+    if (pathname.includes('saladas')) return 'Recetas saladas';
+    if (pathname.includes('postres')) return 'Postres';
+    if (pathname.includes('bebidas')) return 'Bebidas';
+    if (pathname.includes('contact')) return 'Contacto';
+    if (pathname.includes('share')) return 'Compartí tu receta';
+    return 'Inicio';
+}
+
+function irAResultado(indice) {
+    const filtro = obtenerFiltroGuardado();
+    if (!filtro) return;
+    if (indice < 0 || indice >= filtro.coincidencias.length) return;
+
+    filtro.indiceActual = indice;
+    sessionStorage.setItem(FILTER_SESSION_KEY, JSON.stringify(filtro));
+    cerrarPanelResultados();
+    window.location.href = filtro.coincidencias[indice].pagina;
+}
+
 let todasLasRecetas = sincronizarRecetas();
 const filtroForm = document.getElementById('v2-filtro');
 
@@ -76,21 +206,17 @@ if (filtroForm) {
         matches.sort((a, b) => a.minutos - b.minutos);
 
         if (matches.length > 0) {
+            guardarFiltroEstado(matches, {
+                minutos: maxMins,
+                vegetariana: soloVeg,
+                keyword: kw
+            });
+
             if (filtroFeedback) {
-                filtroFeedback.textContent = `Encontramos ${matches.length} recetas. Vamos a mostrarte la más rápida.`;
+                filtroFeedback.textContent = `Encontramos ${matches.length} recetas. Elegí una coincidencia en la lista para navegar.`;
             }
 
-            sessionStorage.setItem('filtro', JSON.stringify({
-                coincidencias: matches,
-                criterios: {
-                    minutos: maxMins,
-                    vegetariana: soloVeg,
-                    keyword: kw
-                },
-                indiceActual: 0
-            }));
-
-            window.location.href = matches[0].pagina;
+            mostrarPanelResultados(matches);
         } else if (filtroFeedback) {
             filtroFeedback.textContent = 'No encontramos recetas con esos filtros. Probá ampliando los criterios.';
         }
@@ -100,100 +226,76 @@ if (filtroForm) {
 window.addEventListener('load', () => {
     sincronizarRecetas();
 
-    const filtroGuardado = sessionStorage.getItem('filtro');
-    if (!filtroGuardado) return;
+    const filtro = obtenerFiltroGuardado();
+    if (!filtro) return;
 
-    try {
-        const filtro = JSON.parse(filtroGuardado);
-        const coincidenciaActual = filtro.coincidencias[filtro.indiceActual];
+    const coincidenciaActual = filtro.coincidencias[filtro.indiceActual];
+    if (coincidenciaActual.pagina !== window.location.pathname) return;
 
-        if (coincidenciaActual.pagina !== window.location.pathname) return;
-
-        const filas = document.querySelectorAll('table tr');
-        filas.forEach((tr) => {
-            const nombreCelda = tr.querySelector('td:first-child');
-            if (nombreCelda && nombreCelda.textContent.trim() === coincidenciaActual.nombre) {
-                tr.classList.add('highlight');
-                tr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                if (filtroFeedback) {
-                    filtroFeedback.textContent = `Mostrando resultados filtrados (${filtro.indiceActual + 1} de ${filtro.coincidencias.length}).`;
-                }
-
-                if (filtro.coincidencias.length > 1 && !document.getElementById('filtro-navegacion')) {
-                    crearNavegacionFiltro(filtro);
-                }
+    const filas = document.querySelectorAll('table tr');
+    filas.forEach((tr) => {
+        const nombreCelda = tr.querySelector('td:first-child');
+        if (nombreCelda && nombreCelda.textContent.trim() === coincidenciaActual.nombre) {
+            tr.classList.add('highlight');
+            tr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (filtroFeedback) {
+                filtroFeedback.textContent = `Mostrando resultados filtrados (${filtro.indiceActual + 1} de ${filtro.coincidencias.length}).`;
             }
-        });
-    } catch (error) {
-        console.error('Error al procesar el filtro guardado:', error);
-        sessionStorage.removeItem('filtro');
-    }
+
+            if (filtro.coincidencias.length > 1) {
+                crearNavegacionFiltro(filtro);
+            }
+        }
+    });
 });
 
 function crearNavegacionFiltro(filtro) {
-    const nav = document.createElement('div');
-    nav.id = 'filtro-navegacion';
-    nav.style.position = 'fixed';
-    nav.style.top = '10px';
-    nav.style.right = '10px';
-    nav.style.background = '#fff';
-    nav.style.padding = '10px';
-    nav.style.border = '1px solid #ccc';
-    nav.style.borderRadius = '5px';
-    nav.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+    let nav = document.getElementById('filtro-navegacion');
+    if (!nav) {
+        nav = document.createElement('div');
+        nav.id = 'filtro-navegacion';
+        nav.className = 'filtro-floating';
+        nav.innerHTML = `
+            <p class="filtro-floating__count"></p>
+            <div class="filtro-floating__actions">
+                <button type="button" data-dir="anterior">Anterior</button>
+                <button type="button" data-dir="siguiente">Siguiente</button>
+                <button type="button" data-close>Limpiar</button>
+            </div>
+        `;
+        document.body.appendChild(nav);
 
-    const contador = document.createElement('div');
-    contador.textContent = `Receta ${filtro.indiceActual + 1} de ${filtro.coincidencias.length}`;
-    contador.style.marginBottom = '5px';
-    nav.appendChild(contador);
-
-    const controles = document.createElement('div');
-
-    if (filtro.indiceActual > 0) {
-        const btnAnterior = document.createElement('button');
-        btnAnterior.type = 'button';
-        btnAnterior.textContent = 'Anterior';
-        btnAnterior.addEventListener('click', () => navegarReceta('anterior'));
-        controles.appendChild(btnAnterior);
+        nav.querySelectorAll('[data-dir]').forEach((btn) => {
+            btn.addEventListener('click', (event) => {
+                navegarReceta(event.currentTarget.dataset.dir);
+            });
+        });
+        nav.querySelector('[data-close]').addEventListener('click', limpiarFiltro);
     }
 
-    if (filtro.indiceActual < filtro.coincidencias.length - 1) {
-        const btnSiguiente = document.createElement('button');
-        btnSiguiente.type = 'button';
-        btnSiguiente.textContent = 'Siguiente';
-        btnSiguiente.style.marginLeft = '8px';
-        btnSiguiente.addEventListener('click', () => navegarReceta('siguiente'));
-        controles.appendChild(btnSiguiente);
-    }
-
-    const btnLimpiar = document.createElement('button');
-    btnLimpiar.type = 'button';
-    btnLimpiar.textContent = 'Limpiar filtro';
-    btnLimpiar.style.marginLeft = '8px';
-    btnLimpiar.addEventListener('click', limpiarFiltro);
-    controles.appendChild(btnLimpiar);
-
-    nav.appendChild(controles);
-    document.body.appendChild(nav);
+    nav.querySelector('.filtro-floating__count').textContent = `Receta ${filtro.indiceActual + 1} de ${filtro.coincidencias.length}`;
+    nav.querySelector('[data-dir="anterior"]').disabled = filtro.indiceActual === 0;
+    nav.querySelector('[data-dir="siguiente"]').disabled = filtro.indiceActual === filtro.coincidencias.length - 1;
 }
 
 function navegarReceta(direccion) {
-    const filtro = JSON.parse(sessionStorage.getItem('filtro'));
+    const filtro = obtenerFiltroGuardado();
+    if (!filtro) return;
     const nuevoIndice = direccion === 'siguiente' ? filtro.indiceActual + 1 : filtro.indiceActual - 1;
 
     if (nuevoIndice >= 0 && nuevoIndice < filtro.coincidencias.length) {
         filtro.indiceActual = nuevoIndice;
-        sessionStorage.setItem('filtro', JSON.stringify(filtro));
+        sessionStorage.setItem(FILTER_SESSION_KEY, JSON.stringify(filtro));
         window.location.href = filtro.coincidencias[nuevoIndice].pagina;
     }
 }
 
 function limpiarFiltro() {
-    sessionStorage.removeItem('filtro');
+    sessionStorage.removeItem(FILTER_SESSION_KEY);
     document.querySelectorAll('tr.highlight').forEach((tr) => tr.classList.remove('highlight'));
     document.getElementById('filtro-navegacion')?.remove();
+    cerrarPanelResultados();
     if (filtroFeedback) {
         filtroFeedback.textContent = 'Se limpió el filtro. Mostramos todas las recetas disponibles.';
     }
 }
-

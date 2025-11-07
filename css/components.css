@@ -18,3 +18,214 @@
     border:0; 
     display:block; 
 }
+
+/* Recetas compartidas */
+.recetas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.recetas-grid__empty {
+    margin-top: 14px;
+    color: #6c625b;
+    font-size: 0.95rem;
+}
+
+.receta-card {
+    background: #fff;
+    border: 1px solid #f1ceb7;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.receta-card__media img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.receta-card__body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.receta-card__title {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.receta-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.receta-card__tag {
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #f1ceb7;
+    background: #fffaf0;
+    color: #9c3f2c;
+}
+
+.receta-card__tag--veg {
+    border-color: #6dbb67;
+    color: #2f7a3d;
+    background: #e6f7e6;
+}
+
+.receta-card__ingredientes {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.receta-card__ingredientes li {
+    margin-bottom: 4px;
+}
+
+.receta-card__pasos {
+    margin: 0;
+    color: #5b514b;
+}
+
+.receta-card__footer {
+    font-size: 0.8rem;
+    color: #8b8077;
+    margin-top: 6px;
+}
+
+/* Panel de resultados del filtro */
+.filtro-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(47, 42, 38, 0.6);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    z-index: 60;
+}
+
+.filtro-panel.is-visible {
+    display: flex;
+}
+
+.filtro-panel__content {
+    background: #fff;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 520px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.filtro-panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.filtro-panel__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0 0 18px;
+    list-style: none;
+}
+
+.filtro-panel__item {
+    width: 100%;
+    border: 1px solid #f1ceb7;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: #fffaf0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.filtro-panel__item:hover,
+.filtro-panel__item:focus-visible {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+.filtro-panel__item strong {
+    display: block;
+    font-size: 1rem;
+    color: #2f2a26;
+}
+
+.filtro-panel__meta {
+    font-size: 0.85rem;
+    color: #6c625b;
+}
+
+.filtro-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filtro-panel__actions button {
+    flex: 1 1 160px;
+}
+
+.filtro-panel__close {
+    border: none;
+    background: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #5b514b;
+}
+
+/* Navegación flotante del filtro */
+.filtro-floating {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: #fff;
+    border: 1px solid #f1ceb7;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    padding: 14px 18px;
+    z-index: 55;
+    width: min(280px, 90vw);
+}
+
+.filtro-floating__count {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: #2f2a26;
+}
+
+.filtro-floating__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filtro-floating button {
+    flex: 1 1 auto;
+}
