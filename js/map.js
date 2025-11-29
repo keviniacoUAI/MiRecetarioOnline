@@ -1,7 +1,9 @@
+// Muestra restaurantes cercanos usando geolocalizacion y Google Maps embed.
 const mapButton = document.getElementById('v2-btn-mapa');
 const mapaIframe = document.getElementById('v2-iframe-mapa');
 const mapFeedback = document.getElementById('map-feedback');
 
+// Muestra feedback y alterna estilos segun resultado de geolocalizacion.
 function actualizarFeedback(mensaje, tipo = 'info') {
     if (!mapFeedback) return;
     mapFeedback.textContent = mensaje;
@@ -14,6 +16,7 @@ function actualizarFeedback(mensaje, tipo = 'info') {
 }
 
 if (mapButton && mapaIframe) {
+    // Pide geolocalizacion y actualiza el iframe de Google Maps con resultados cercanos.
     mapButton.addEventListener('click', () => {
         if (!navigator.geolocation) {
             actualizarFeedback('Tu navegador no soporta geolocalización.', 'error');

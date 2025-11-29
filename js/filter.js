@@ -1,8 +1,10 @@
+// Filtro de recetas: sincroniza datos, aplica criterios y navega coincidencias.
 const filtroFeedback = document.getElementById('filtro-feedback');
 const FILTER_SESSION_KEY = 'filtro';
 let panelResultados = null;
 let escapeListenerRegistrado = false;
 
+// Recolecta las recetas de la tabla actual y arma objetos con metadatos.
 function obtenerRecetasDePagina() {
     const recetas = [];
     const filas = document.querySelectorAll('table tr[data-mins]');
@@ -25,6 +27,7 @@ function obtenerRecetasDePagina() {
     return recetas;
 }
 
+// Fusiona recetas de la pagina con las ya guardadas en localStorage.
 function sincronizarRecetas() {
     const recetasActuales = obtenerRecetasDePagina();
     let todasLasRecetas = [];
@@ -47,6 +50,7 @@ function sincronizarRecetas() {
     return todasLasRecetas;
 }
 
+// Persiste el estado del filtro en sessionStorage para navegar luego.
 function guardarFiltroEstado(coincidencias, criterios) {
     const estado = {
         coincidencias,
@@ -57,6 +61,7 @@ function guardarFiltroEstado(coincidencias, criterios) {
     return estado;
 }
 
+// Lee el estado de filtro guardado y maneja parseos fallidos.
 function obtenerFiltroGuardado() {
     const raw = sessionStorage.getItem(FILTER_SESSION_KEY);
     if (!raw) return null;
@@ -68,6 +73,7 @@ function obtenerFiltroGuardado() {
     }
 }
 
+// Crea/actualiza el panel modal con coincidencias y listeners de salida.
 function mostrarPanelResultados(matches) {
     if (!matches.length) return;
     panelResultados = panelResultados || crearPanelResultados();
@@ -100,6 +106,7 @@ function mostrarPanelResultados(matches) {
     }
 }
 
+// Oculta el panel y limpia listeners de escape.
 function cerrarPanelResultados() {
     if (!panelResultados) return;
     panelResultados.classList.remove('is-visible');
@@ -110,6 +117,7 @@ function cerrarPanelResultados() {
     }
 }
 
+// Cierra el panel al presionar Escape sin propagar el evento.
 function manejarEscapePanel(event) {
     if (event.key === 'Escape') {
         event.stopPropagation();
@@ -117,6 +125,7 @@ function manejarEscapePanel(event) {
     }
 }
 
+// Construye el overlay del panel y registra acciones de cerrar/navegar/limpiar.
 function crearPanelResultados() {
     const overlay = document.createElement('div');
     overlay.id = 'filtro-panel';
@@ -153,6 +162,7 @@ function crearPanelResultados() {
     return overlay;
 }
 
+// Devuelve un nombre legible segun la ruta de la pagina.
 function obtenerNombreCategoria(pathname) {
     if (!pathname) return 'Inicio';
     if (pathname.includes('saladas')) return 'Recetas saladas';
@@ -163,6 +173,7 @@ function obtenerNombreCategoria(pathname) {
     return 'Inicio';
 }
 
+// Guarda el indice elegido y navega a la pagina de la coincidencia.
 function irAResultado(indice) {
     const filtro = obtenerFiltroGuardado();
     if (!filtro) return;
@@ -178,6 +189,7 @@ let todasLasRecetas = sincronizarRecetas();
 const filtroForm = document.getElementById('v2-filtro');
 
 if (filtroForm) {
+    // Maneja el submit del formulario de filtro: aplica criterios y muestra el panel de coincidencias.
     filtroForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -223,6 +235,7 @@ if (filtroForm) {
     });
 }
 
+// Al cargar la pagina, resalta la coincidencia actual y crea navegacion si hay varias.
 window.addEventListener('load', () => {
     sincronizarRecetas();
 
@@ -249,6 +262,7 @@ window.addEventListener('load', () => {
     });
 });
 
+// Inserta o actualiza el flotante de navegacion entre coincidencias.
 function crearNavegacionFiltro(filtro) {
     let nav = document.getElementById('filtro-navegacion');
     if (!nav) {
@@ -278,6 +292,7 @@ function crearNavegacionFiltro(filtro) {
     nav.querySelector('[data-dir="siguiente"]').disabled = filtro.indiceActual === filtro.coincidencias.length - 1;
 }
 
+// Cambia el indice actual y redirige a la receta previa/siguiente.
 function navegarReceta(direccion) {
     const filtro = obtenerFiltroGuardado();
     if (!filtro) return;
@@ -290,6 +305,7 @@ function navegarReceta(direccion) {
     }
 }
 
+// Resetea el estado del filtro, remueve destacados y cierra paneles.
 function limpiarFiltro() {
     sessionStorage.removeItem(FILTER_SESSION_KEY);
     document.querySelectorAll('tr.highlight').forEach((tr) => tr.classList.remove('highlight'));

@@ -1,6 +1,7 @@
 // Manejo de localStorage y sessionStorage
 const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach((link) => {
+    // Guarda la ultima seccion clickeada para recordarla en la sesion.
     link.addEventListener('click', () => {
         sessionStorage.setItem('ultimaSeccion', link.getAttribute('href'));
     });
@@ -10,12 +11,14 @@ const nombreGuardado = localStorage.getItem('nombreUsuario');
 const presentacionTitulo = document.getElementById('presentacion-titulo');
 
 if (presentacionTitulo && nombreGuardado) {
-    presentacionTitulo.textContent = `Hola ${nombreGuardado}, ¡bienvenido de nuevo!`;
+    // Personaliza el saludo inicial usando el nombre guardado.
+    presentacionTitulo.textContent = `Hola ${nombreGuardado}, �bienvenido de nuevo!`;
     presentacionTitulo.classList.add('presentacion__titulo--personalizado');
 }
 
 const CONTACTO_STORAGE_KEY = 'contactoMensajes';
 
+// Lee el historial de mensajes de contacto desde localStorage.
 function obtenerMensajesContacto() {
     try {
         const datos = localStorage.getItem(CONTACTO_STORAGE_KEY);
@@ -26,10 +29,12 @@ function obtenerMensajesContacto() {
     }
 }
 
+// Persiste el arreglo completo de mensajes de contacto.
 function guardarMensajesContacto(mensajes) {
     localStorage.setItem(CONTACTO_STORAGE_KEY, JSON.stringify(mensajes));
 }
 
+// Renderiza la lista de mensajes en el DOM y muestra/oculta el historial.
 function renderizarMensajesContacto(listaElemento, historialSeccion, mensajes) {
     if (!listaElemento || !historialSeccion) return;
 
@@ -77,6 +82,7 @@ if (contactoForm) {
     let mensajes = obtenerMensajesContacto();
     renderizarMensajesContacto(listaMensajes, historialSeccion, mensajes);
 
+    // Maneja el envio del formulario de contacto: valida, guarda y actualiza la vista.
     contactoForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -86,7 +92,7 @@ if (contactoForm) {
 
         if (!nombre || !email || !descripcion) {
             if (feedback) {
-                feedback.textContent = 'Por favor completá todos los campos antes de enviar.';
+                feedback.textContent = 'Por favor complet� todos los campos antes de enviar.';
                 feedback.style.color = '#cc5c3b';
             }
             return;
@@ -110,8 +116,9 @@ if (contactoForm) {
         document.getElementById('c-nombre').focus();
 
         if (feedback) {
-            feedback.textContent = '¡Gracias! Recibimos tu mensaje.';
+            feedback.textContent = '�Gracias! Recibimos tu mensaje.';
             feedback.style.color = '#2f7a3d';
         }
     });
 }
+

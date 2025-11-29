@@ -1,3 +1,4 @@
+// Modulo de compartir recetas: maneja drop de imagen, formulario y renderizado.
 const drop = document.getElementById('v2-drop');
 const preview = document.getElementById('v2-preview');
 const grid = document.getElementById('v2-recetas-nuevas');
@@ -8,6 +9,7 @@ let v2FotoDataURL = null;
 
 const STORAGE_KEY = 'recetasComunidad';
 
+// Pinta un mensaje en la caja de feedback segun tipo (info, error, success).
 function mostrarFeedback(mensaje, tipo = 'info') {
     if (!compartirFeedback) return;
     compartirFeedback.textContent = mensaje;
@@ -19,12 +21,14 @@ function mostrarFeedback(mensaje, tipo = 'info') {
     }
 }
 
+// Muestra u oculta el mensaje de lista vacia segun haya tarjetas en el grid.
 function actualizarEstadoLista() {
     if (!mensajeVacio) return;
     const hayRecetas = grid && grid.childElementCount > 0;
     mensajeVacio.hidden = hayRecetas;
 }
 
+// Convierte la cadena de ingredientes en un arreglo limpio y acotado.
 function obtenerListaIngredientes(texto) {
     return (texto || '')
         .split(',')
@@ -33,6 +37,7 @@ function obtenerListaIngredientes(texto) {
         .slice(0, 8);
 }
 
+// Formatea una fecha ISO a un string legible en es-AR.
 function formatearFecha(fechaISO) {
     try {
         return new Date(fechaISO).toLocaleDateString('es-AR', {
@@ -45,6 +50,7 @@ function formatearFecha(fechaISO) {
     }
 }
 
+// Normaliza la estructura de una receta antes de renderizar o guardar.
 function normalizarReceta(data) {
     return {
         id: data.id ?? Date.now(),
@@ -58,6 +64,7 @@ function normalizarReceta(data) {
     };
 }
 
+// Crea la tarjeta de receta en el DOM; permite insertar al inicio con prepend.
 function renderReceta(receta, { prepend = false } = {}) {
     if (!grid) return;
     const datos = normalizarReceta(receta);
@@ -137,6 +144,7 @@ function renderReceta(receta, { prepend = false } = {}) {
     actualizarEstadoLista();
 }
 
+// Lee recetas previas de localStorage y las muestra en el grid.
 function cargarRecetasGuardadas() {
     if (!grid) return;
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -157,6 +165,7 @@ function cargarRecetasGuardadas() {
     }
 }
 
+// Persiste una receta en localStorage y devuelve la version normalizada.
 function guardarReceta(receta) {
     const nuevaReceta = normalizarReceta(receta);
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -167,6 +176,7 @@ function guardarReceta(receta) {
 }
 
 if (drop) {
+    // Drag & drop: valida imagen, la convierte a DataURL y muestra preview.
     drop.addEventListener('dragover', (event) => {
         event.preventDefault();
         drop.classList.add('activa');
@@ -208,6 +218,7 @@ if (drop) {
 }
 
 if (formularioCompartir) {
+    // Maneja envio del formulario: valida campos, guarda y renderiza receta.
     formularioCompartir.addEventListener('submit', (event) => {
         event.preventDefault();
         const nuevaReceta = {
